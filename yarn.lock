@@ -2943,6 +2943,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kindglow@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "kindglow@workspace:."
+  dependencies:
+    "@tailwindcss/postcss": "npm:^4"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    babel-plugin-react-compiler: "npm:1.0.0"
+    eslint: "npm:^9"
+    eslint-config-next: "npm:16.1.6"
+    next: "npm:16.1.6"
+    react: "npm:19.2.3"
+    react-dom: "npm:19.2.3"
+    tailwindcss: "npm:^4"
+    typescript: "npm:^5"
+  languageName: unknown
+  linkType: soft
+
 "language-subtag-registry@npm:^0.3.20":
   version: 0.3.23
   resolution: "language-subtag-registry@npm:0.3.23"
@@ -3493,25 +3512,6 @@ __metadata:
   checksum: 10c0/b00d617431e7886c520a6f498a2e14c75ec58f6d93ba48c3b639cf241b54232d90daa05d83a9e9b9fef6baa63cb7e1e4602c2372fea5bc169668401eb127d0cd
   languageName: node
   linkType: hard
-
-"project-1@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "project-1@workspace:."
-  dependencies:
-    "@tailwindcss/postcss": "npm:^4"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
-    babel-plugin-react-compiler: "npm:1.0.0"
-    eslint: "npm:^9"
-    eslint-config-next: "npm:16.1.6"
-    next: "npm:16.1.6"
-    react: "npm:19.2.3"
-    react-dom: "npm:19.2.3"
-    tailwindcss: "npm:^4"
-    typescript: "npm:^5"
-  languageName: unknown
-  linkType: soft
 
 "prop-types@npm:^15.8.1":
   version: 15.8.1
