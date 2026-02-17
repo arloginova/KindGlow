@@ -19,4 +19,5 @@ export interface Product {
         mobile: string;
     };
     category: string;
+    isTall?: boolean;
 }

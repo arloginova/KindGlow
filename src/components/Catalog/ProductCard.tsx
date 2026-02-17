@@ -9,12 +9,11 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: ProductCardProps) => {
-    // Выбираем изображения для каждого типа экрана отдельно
-    // Если на десктопе карточка высокая — берем из largeImages, иначе из обычных
-    const desktopImg = (isTallLg && product.largeImages) ? product.largeImages.desktop : product.images.desktop;
-    const tabletImg = (isTallLg && product.largeImages) ? product.largeImages.tablet : product.images.tablet;
-    // Для мобилки своя проверка
-    const mobileImg = (isTallSm && product.largeImages) ? product.largeImages.mobile : product.images.mobile;
+    // Для сетки всегда используем "маленькие" изображения (images), как просил юзер.
+    // Если изображение прямоугольное, оно просто займет 2 ячейки по высоте.
+    const desktopImg = product.images.desktop;
+    const tabletImg = product.images.tablet;
+    const mobileImg = product.images.mobile;
 
     return (
         <Link
@@ -58,16 +57,16 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
             </div>
 
             {/* Контент поверх фото внизу */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 z-10 flex flex-col">
-                <div className="flex justify-between items-start gap-2 mb-1">
-                    <h3 className="text-[14px] lg:text-[16px] font-bold text-black uppercase leading-[1.2] font-montserrat">
+            <div className="absolute bottom-0 left-0 right-0 p-3 lg:p-4 xl:p-5 z-10 flex flex-col">
+                <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.5 lg:mb-1">
+                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black uppercase leading-[1.2] font-montserrat">
                         {product.name}
                     </h3>
-                    <span className="text-[14px] lg:text-[16px] font-bold text-black whitespace-nowrap font-montserrat">
+                    <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black whitespace-nowrap font-montserrat">
                         {product.price.toLocaleString()} Р
                     </span>
                 </div>
-                <p className="text-[13px] lg:text-[15px] text-gray-800 font-normal font-montserrat max-w-[90%] leading-snug">
+                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-gray-800 font-normal font-montserrat max-w-[95%] leading-tight lg:leading-snug">
                     {product.description}
                 </p>
             </div>

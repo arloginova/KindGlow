@@ -118,7 +118,8 @@ export const products: Product[] = [
             tablet: '/products/lips/5_большая_ipad.png',
             mobile: '/products/lips/5_большая_iphone.png'
         },
-        category: 'губы'
+        category: 'губы',
+        isTall: true
     },
     {
         id: 'dear-dahlia-color-balm',
@@ -254,7 +255,8 @@ export const products: Product[] = [
             tablet: '/products/lips/11_большая_ipad.png',
             mobile: '/products/lips/11_большая_iphone.png'
         },
-        category: 'губы'
+        category: 'губы',
+        isTall: true
     },
 
 
@@ -368,7 +370,8 @@ export const products: Product[] = [
             tablet: '/products/blush/5_большая_ipad.png',
             mobile: '/products/blush/5_большая_iphone.png'
         },
-        category: 'румяна'
+        category: 'румяна',
+        isTall: true
     },
     {
         id: 'paese-selfglow',
@@ -500,7 +503,8 @@ export const products: Product[] = [
             tablet: '/products/blush/11_большая_ipad.png',
             mobile: '/products/blush/11_большая_iphone.png'
         },
-        category: 'румяна'
+        category: 'румяна',
+        isTall: true
     },
 
 
@@ -647,7 +651,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/sponge/5_большая_ipad.png',
             mobile: '/products/sponge/5_большая_iphone.png'
         },
-        category: 'кисти и спонжи'
+        category: 'кисти и спонжи',
+        isTall: true
     },
     {
         id: 'for-me-bathtub',
@@ -785,7 +790,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/sponge/10_большая_ipad.png',
             mobile: '/products/sponge/10_большая_iphone.png'
         },
-        category: 'кисти и спонжи'
+        category: 'кисти и спонжи',
+        isTall: true
     },
     {
         id: 'topface-brush-f18',
@@ -817,7 +823,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/sponge/11_большая_ipad.png',
             mobile: '/products/sponge/11_большая_iphone.png'
         },
-        category: 'кисти и спонжи'
+        category: 'кисти и спонжи',
+        isTall: true
     },
 
 
@@ -931,7 +938,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/face/5_большая_ipad.png',
             mobile: '/products/face/5_большая_iphone.png'
         },
-        category: 'лицо'
+        category: 'лицо',
+        isTall: true
     },
     {
         id: 'd-alba-mild-skin-cleanser',
@@ -1041,7 +1049,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/face/10_большая_ipad.png',
             mobile: '/products/face/10_большая_iphone.png'
         },
-        category: 'лицо'
+        category: 'лицо',
+        isTall: true
     },
     {
         id: 'miko-ubtan-zero-waste',
@@ -1151,7 +1160,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/face/15_большая_ipad.png',
             mobile: '/products/face/15_большая_iphone.png'
         },
-        category: 'лицо'
+        category: 'лицо',
+        isTall: true
     },
     {
         id: 'nunkoro-micellar-water',
@@ -1261,7 +1271,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/face/20_большая_iapd.png',
             mobile: '/products/face/20_большая_iphone.png'
         },
-        category: 'лицо'
+        category: 'лицо',
+        isTall: true
     },
     {
         id: 'labiotte-hyalbiome',
@@ -1283,7 +1294,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/face/21_большая_ipad.png',
             mobile: '/products/face/21_большая_iphone.png'
         },
-        category: 'лицо'
+        category: 'лицо',
+        isTall: true
     },
 
     //-----------------------------------------ТОВАРЫ ДЛЯ ГЛАЗ---------------------------------------------//
@@ -1396,7 +1408,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/eyes/5_большая_ipad.png',
             mobile: '/products/eyes/5_большая_iphone.png'
         },
-        category: 'глаза'
+        category: 'глаза',
+        isTall: true
     },
     {
         id: 'manyo-eyelash-ampoule',
@@ -1506,7 +1519,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/eyes/10_большая_ipad.png',
             mobile: '/products/eyes/10_большая_iphone.png'
         },
-        category: 'глаза'
+        category: 'глаза',
+        isTall: true
     },
     {
         id: 'makeup-forever-color-ink',
@@ -1528,7 +1542,8 @@ setting: Мягкий, пушистый ворс. Позволяет точно 
             tablet: '/products/eyes/11_большая_ipad.png',
             mobile: '/products/eyes/11_большая_iphone.png'
         },
-        category: 'глаза'
-    }
+        category: 'глаза',
+        isTall: true
+    },
 
 ];

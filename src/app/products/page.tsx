@@ -51,35 +51,37 @@ export default function CatalogPage() {
 
                 {/* Сетка товаров */}
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-5 grid-flow-dense">
-                    {filteredProducts.map((product, index) => {
-                        // Логика для десктопа (lg: 3 колонки)
-                        // Цикл 10 элементов: 2-й (3-я колонка) и 5-й (1-я колонка) — высокие
-                        const isTallLg = index % 10 === 2 || index % 10 === 5;
-                        const colStartLg = index % 10 === 2 ? 'lg:col-start-3' : (index % 10 === 5 ? 'lg:col-start-1' : '');
+                    {(() => {
+                        let tallCount = 0;
+                        return filteredProducts.map((product) => {
+                            const isTall = product.isTall || false;
 
-                        // Логика для мобилки (2 колонки)
-                        // Цикл 6 элементов: 1-й (2-я колонка) и 3-й (1-я колонка) — высокие
-                        const isTallSm = index % 6 === 1 || index % 6 === 3;
-                        const colStartSm = index % 6 === 1 ? 'col-start-2' : (index % 6 === 3 ? 'col-start-1' : '');
+                            let colClass = '';
+                            if (isTall) {
+                                tallCount++;
+                                // Десктоп (3 колонки): чередуем 3-ю и 1-ю колонки
+                                const lgCol = tallCount % 2 === 1 ? 'lg:col-start-3' : 'lg:col-start-1';
+                                // Мобилка (2 колонки): чередуем 2-ю и 1-ю колонки
+                                const smCol = tallCount % 2 === 1 ? 'col-start-2' : 'col-start-1';
+                                colClass = `${lgCol} ${smCol}`;
+                            }
 
-                        return (
-                            <div
-                                key={product.id}
-                                className={`
-                                    ${isTallLg ? 'lg:row-span-2' : ''} 
-                                    ${colStartLg}
-                                    ${isTallSm ? 'row-span-2' : ''}
-                                    ${colStartSm}
-                                `}
-                            >
-                                <ProductCard
-                                    product={product}
-                                    isTallLg={isTallLg}
-                                    isTallSm={isTallSm}
-                                />
-                            </div>
-                        );
-                    })}
+                            return (
+                                <div
+                                    key={product.id}
+                                    className={`
+                                        ${isTall ? 'row-span-2 ' + colClass : ''}
+                                    `}
+                                >
+                                    <ProductCard
+                                        product={product}
+                                        isTallLg={isTall}
+                                        isTallSm={isTall}
+                                    />
+                                </div>
+                            );
+                        });
+                    })()}
 
                     {/* Рекламный баннер (вставляем после 6-го товара или в конце) */}
                     <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-8">

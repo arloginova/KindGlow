@@ -14,7 +14,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
     const recommendedProducts = useMemo(() => {
         return products
-            .filter((p) => p.id !== id)
+            .filter((p) => p.id !== id && !p.isTall)
             .sort(() => 0.5 - Math.random())
             .slice(0, 3);
     }, [id]);
@@ -188,8 +188,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         Вам может понравиться
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 lg:gap-5">
-                        {recommendedProducts.map((p) => (
-                            <ProductCard key={p.id} product={p} />
+                        {recommendedProducts.map((p, index) => (
+                            <div key={p.id} className={index === 2 ? 'hidden md:block' : ''}>
+                                <ProductCard product={p} />
+                            </div>
                         ))}
                     </div>
                 </section>
