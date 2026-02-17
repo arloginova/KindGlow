@@ -18,7 +18,7 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
 
     return (
         <Link
-            href={product.link}
+            href={`/products/${product.id}`}
             className={`group relative block w-full overflow-hidden rounded-[24px] bg-[#F3F3F7] transition-all 
                 ${isTallLg ? 'lg:aspect-[1/2.04]' : 'lg:aspect-square'}
                 ${isTallSm ? 'aspect-[1/2.04]' : 'aspect-square'}`}
