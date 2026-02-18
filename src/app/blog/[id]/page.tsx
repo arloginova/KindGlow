@@ -62,24 +62,24 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
             <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-10 py-8 lg:py-12">
 
                 {/* Хлебные крошки */}
-                <nav className="flex items-center gap-2 text-[11px] md:text-[12px] font-montserrat text-gray-400 uppercase tracking-wide mb-6">
-                    <Link href="/blog" className="hover:text-black transition-colors">СТАТЬИ</Link>
-                    <span>›</span>
-                    <span className="text-gray-600">{categoryLabels[article.category]}</span>
+                <nav className="flex items-center gap-2 text-[12px] lg:text-[18px] uppercase tracking-widest mb-6 lg:mb-10 font-montserrat">
+                    <Link href="/blog" className="text-black hover:text-black transition-colors">СТАТЬИ</Link>
+                    <span className="text-black">&gt;</span>
+                    <span className="text-black font-regular uppercase">{categoryLabels[article.category]}</span>
                 </nav>
 
                 {/* Основной layout: контент + сайдбар */}
-                <div className="flex gap-12 lg:gap-13 items-start">
+                <div className="flex gap-12 md:gap-8 xl:gap-20 items-start">
 
                     {/* ── Левая колонка: контент ── */}
                     <article className="flex-1 min-w-0 max-w-[856px]">
 
                         {/* Бейджи */}
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
                             {article.badges.map(badge => (
                                 <span
                                     key={badge}
-                                    className={`text-[10px] lg:text-[16px] font-regular font-montserrat leading-tight bg-white px-2 py-1 rounded-full border }`}
+                                    className={`text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-regular font-montserrat leading-tight bg-white px-2 py-1 rounded-full border `}
                                 >
                                     #{badge}
                                 </span>
@@ -87,18 +87,18 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Заголовок */}
-                        <h1 className="text-[28px] md:text-[36px] lg:text-[50px] font-montserrat font-semibold text-black uppercase leading-tight mb-1">
+                        <h1 className="text-[24px] md:text-[32px] lg:text-[40px] xl:text-[50px] font-montserrat font-semibold text-black uppercase leading-tight mb-2 md:mb-3">
                             {article.title}
                         </h1>
 
                         {/* Описание */}
-                        <p className="text-[14px] md:text-[18px] text-black font-montserrat leading-relaxed mb-8">
+                        <p className="text-[13px] md:text-[15px] lg:text-[16px] xl:text-[18px] text-black font-montserrat leading-relaxed mb-6 md:mb-8">
                             {article.description}
                         </p>
 
                         {/* Картинка для мобильного (только < md) */}
                         {article.squareImage && (
-                            <div className="relative w-[185px] h-[111px] rounded-[16px] overflow-hidden mb-8 md:hidden">
+                            <div className="relative w-[185px] h-[111px] rounded-[16px] overflow-hidden mb-6 md:hidden">
                                 <Image
                                     src={article.squareImageIphone ?? article.squareImage}
                                     alt={article.title}
@@ -112,14 +112,14 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                         {/* Текст статьи по секциям */}
                         <div>
                             {contentSections.map(({ sectionId, heading, body }) => (
-                                <div key={sectionId} id={sectionId} className="mb-10 scroll-mt-8">
+                                <div key={sectionId} id={sectionId} className="mb-8 md:mb-10 scroll-mt-8">
                                     {heading && (
-                                        <h2 className="text-[20px] md:text-[26px] font-tan-pearl text-black uppercase leading-tight mb-4">
+                                        <h2 className="text-[18px] md:text-[22px] lg:text-[26px] xl:text-[50px] font-montserrat font-medium text-black leading-tight mb-3 md:mb-4">
                                             {heading}
                                         </h2>
                                     )}
                                     <div
-                                        className="text-[14px] md:text-[15px] text-gray-800 font-montserrat leading-relaxed space-y-3"
+                                        className="text-[13px] md:text-[14px] lg:text-[15px] xl:text-[18px] text-black font-montserrat leading-tight  space-y-3"
                                         dangerouslySetInnerHTML={{ __html: markdownToHtml(body) }}
                                     />
                                 </div>
@@ -128,28 +128,28 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                     </article>
 
                     {/* ── Правая колонка: картинка + содержание (только md+) ── */}
-                    <aside className="hidden md:flex flex-col gap-6 w-[320px] lg:w-[453px] flex-shrink-0 sticky top-8">
+                    <aside className="hidden md:flex flex-col gap-6 w-[320px] xl:w-[453px] flex-shrink-0 sticky top-8">
 
                         {/* Картинка статьи */}
                         {article.squareImage && (
-                            <div className="relative w-full rounded-[16px] overflow-hidden shadow-sm aspect-[320/195] lg:aspect-[453/273]">
+                            <div className="relative w-full rounded-[16px] overflow-hidden shadow-sm aspect-[320/195] xl:aspect-[453/273]">
                                 <Image
                                     src={article.squareImageIpad ?? article.squareImage}
                                     alt={article.title}
                                     fill
-                                    className="object-cover md:block lg:hidden"
+                                    className="object-cover md:block xl:hidden"
                                 />
                                 <Image
                                     src={article.squareImage}
                                     alt={article.title}
                                     fill
-                                    className="object-cover hidden lg:block"
+                                    className="object-cover hidden xl:block"
                                 />
                             </div>
                         )}
 
                         {/* Содержание с фоном */}
-                        <div className="relative w-full aspect-[320/254] lg:aspect-[453/296] rounded-[16px] overflow-hidden p-6 lg:p-10 flex flex-col justify-center shadow-sm">
+                        <div className="relative w-full aspect-[320/254] xl:aspect-[453/296] rounded-[16px] overflow-hidden p-6 xl:p-10 flex flex-col justify-center shadow-sm">
                             {/* Фон */}
                             <div className="absolute inset-0 z-0">
                                 <Image
@@ -162,7 +162,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
 
                             {/* Контент поверх фона */}
                             <div className="relative z-10 w-full">
-                                <p className="text-[11px] font-bold font-montserrat text-gray-500 uppercase tracking-widest mb-4">
+                                <p className="text-[10px] md:text-[11px] font-semibold font-montserrat text-black uppercase tracking-widest mb-3 md:mb-4">
                                     СОДЕРЖАНИЕ
                                 </p>
                                 <nav className="flex flex-col gap-2">
@@ -170,7 +170,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                                         <button
                                             key={section.id}
                                             onClick={() => scrollToSection(section.id)}
-                                            className={`text-left text-[12px] lg:text-[14px] font-montserrat leading-snug transition-all duration-200 ${activeSection === section.id
+                                            className={`text-left text-[11px] md:text-[12px] xl:text-[16px] font-montserrat leading-snug transition-all duration-200 ${activeSection === section.id
                                                 ? 'text-black font-semibold pl-2 border-l-2 border-black'
                                                 : 'text-gray-600 hover:text-black hover:pl-1'
                                                 }`}
