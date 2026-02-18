@@ -10,7 +10,7 @@ export const Header = () => {
                     {/* Десктопная навигация */}
                     <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
                         <Link href="/products" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">ПРОДУКТЫ</Link>
-                        <Link href="/articles" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">СТАТЬИ</Link>
+                        <Link href="/blog" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">СТАТЬИ</Link>
                         <Link href="/test" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">ТЕСТ</Link>
                         <Link href="/lessons" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors whitespace-nowrap">УРОКИ И ОБЗОРЫ</Link>
                     </nav>
@@ -71,7 +71,7 @@ export const Header = () => {
             <div className="lg:hidden overflow-x-auto no-scrollbar">
                 <nav className="flex items-center justify-center gap-5 px-4">
                     <Link href="/products" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">ПРОДУКТЫ</Link>
-                    <Link href="/articles" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">СТАТЬИ</Link>
+                    <Link href="/blog" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">СТАТЬИ</Link>
                     <Link href="/test" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">ТЕСТ</Link>
                     <Link href="/lessons" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">УРОКИ И ОБЗОРЫ</Link>
                 </nav>
