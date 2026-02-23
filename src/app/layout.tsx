@@ -30,7 +30,7 @@ export default function RootLayout({
         <html lang="ru">
             <body className={`${montserrat.variable} ${tanPearl.variable} antialiased min-h-screen flex flex-col`}>
                 <Header />
-                <main className="flex-grow">
+                <main className="flex-grow mb-8 md:mb-[60px] xl:mb-[76px]">
                     {children}
                 </main>
                 <Footer />

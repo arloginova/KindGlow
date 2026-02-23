@@ -27,7 +27,7 @@ export default function CatalogPage() {
         });
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="bg-white">
             <div className="max-w-[1440px] mx-auto px-2 md:px-4 lg:px-5 py-8 lg:py-12">
 
                 {/* Заголовок */}
@@ -122,7 +122,7 @@ export default function CatalogPage() {
                                         <div className="relative w-full h-[136px] md:h-[262px] xl:h-[350px] rounded-[24px] md:rounded-[32px] lg:rounded-[40px] overflow-hidden">
                                             {/* Фоновое изображение */}
                                             <Image
-                                                src="/advertising/background_advertising_iphone.png"
+                                                src="/advertising/background_advertising_iphone.svg"
                                                 alt="Background"
                                                 fill
                                                 className="object-cover md:hidden"
@@ -172,12 +172,12 @@ export default function CatalogPage() {
                                                 </div>
                                                 
                                                 {/* Фото товаров справа */}
-                                                <div className="absolute right-4 md:right-8 xl:right-12 bottom-0 w-[100px] md:w-[423px] xl:w-[498px] h-[80px] md:h-[224px] xl:h-[264px]">
+                                                <div className="absolute right-0 md:right-8 xl:right-12 bottom-0 w-[187px] md:w-[423px] xl:w-[498px] h-[99px] md:h-[224px] xl:h-[264px]">
                                                     <Image
                                                         src="/advertising/photo_advertising_iphone.png"
                                                         alt="Products"
                                                         fill
-                                                        className="object-contain md:hidden"
+                                                        className="object-contain object-bottom md:hidden"
                                                     />
                                                     <Image
                                                         src="/advertising/photo_advertising_ipad.png"
@@ -240,13 +240,13 @@ export default function CatalogPage() {
                                         <div className="relative w-full h-[136px] md:h-[262px] rounded-[24px] md:rounded-[32px] overflow-hidden">
                                             {/* Фоновое изображение */}
                                             <Image
-                                                src="/advertising/background_advertising_iphone.png"
+                                                src="/advertising/background_advertising_iphone.svg"
                                                 alt="Background"
                                                 fill
                                                 className="object-cover md:hidden"
                                             />
                                             <Image
-                                                src="/advertising/background_advertising_ipad.png"
+                                                src="/advertising/background_advertising_ipad.svg"
                                                 alt="Background"
                                                 fill
                                                 className="object-cover hidden md:block"
@@ -275,7 +275,7 @@ export default function CatalogPage() {
                                                         </div>
                                                         <Link
                                                             href="/test"
-                                                            className="inline-flex items-center gap-1 md:gap-2 border-2 border-brand-purple text-brand-purple rounded-full px-3 md:px-5 py-1.5 md:py-2 text-[8px] md:text-[12px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white transition-all"
+                                                            className="inline-flex items-center gap-1 md:gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-3 md:px-5 py-1.5 md:py-2 text-[8px] md:text-[12px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white transition-all"
                                                         >
                                                             <span>ПРОЙТИ ТЕСТ</span>
                                                             <span className="text-[12px] md:text-[16px]">&gt;</span>
@@ -284,12 +284,12 @@ export default function CatalogPage() {
                                                 </div>
                                                 
                                                 {/* Фото товаров справа */}
-                                                <div className="absolute right-4 md:right-8 bottom-0 w-[100px] md:w-[180px] h-[80px] md:h-[150px]">
+                                                <div className="absolute right-0 md:right-8 bottom-0 w-[160px] md:w-[180px] h-[85px] md:h-[150px]">
                                                     <Image
                                                         src="/advertising/photo_advertising_iphone.png"
                                                         alt="Products"
                                                         fill
-                                                        className="object-contain md:hidden"
+                                                        className="object-contain object-bottom md:hidden"
                                                     />
                                                     <Image
                                                         src="/advertising/photo_advertising_ipad.png"

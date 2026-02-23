@@ -65,7 +65,7 @@ export default function TestPage() {
 
     if (!testStarted) {
         return (
-            <main className="min-h-screen bg-white">
+            <main className="bg-white">
                 <div className="max-w-[1440px] mx-auto px-2 md:px-6 xl:px-4 py-8 xl:py-2">
                     
                     {/* Баннер */}
@@ -145,8 +145,8 @@ export default function TestPage() {
                             </div>
                         </div>
 
-                        {/* Цветок (НАД текстом справа, прилипает к низу, на мобиле половина видна) */}
-                        <div className="absolute -right-[250px] md:-right-[290px] xl:right-0 bottom-0 w-[479px] md:w-[758px] xl:w-[600px] h-[501px] md:h-[730px] xl:h-[600px] z-20 pointer-events-none">
+                        {/* Цветок (под текстом, но над YOUR MATCH на мобиле) */}
+                        <div className="absolute -right-[250px] md:-right-[290px] xl:right-0 bottom-0 w-[479px] md:w-[758px] xl:w-[600px] h-[501px] md:h-[730px] xl:h-[600px] z-[5] md:z-20 pointer-events-none">
                             <Image
                                 src="/test/3DGlassFlowers_test.png"
                                 alt="Flower decoration"
@@ -156,11 +156,11 @@ export default function TestPage() {
                         </div>
 
                         {/* Текст "YOUR MATCH" справа снизу */}
-                        <div className="absolute right-4 md:right-10 xl:right-16 bottom-4 md:bottom-10 xl:bottom-16 z-10 w-[120px] md:w-[350px] xl:w-[450px] h-[80px] md:h-[180px] xl:h-[240px]">
+                        <div className="absolute right-4 md:right-10 xl:right-16 bottom-4 md:bottom-10 xl:bottom-16 z-[3] w-[120px] md:w-[350px] xl:w-[450px] h-[80px] md:h-[180px] xl:h-[240px]">
                             <p className="absolute top-0 right-0 text-[32px] md:text-[72px] xl:text-[96px] font-tan-pearl text-black leading-none uppercase">
                                 YOUR
                             </p>
-                            <p className="absolute bottom-0 left-0  text-[32px] md:text-[72px] xl:text-[96px] font-tan-pearl text-black leading-none uppercase">
+                            <p className="absolute bottom-0 right-5 text-[32px] md:text-[72px] xl:text-[96px] font-tan-pearl text-black leading-none uppercase">
                                 MATCH
                             </p>
                         </div>
@@ -173,7 +173,7 @@ export default function TestPage() {
 
     // Здесь будет логика вопросов теста
     return (
-        <main className="min-h-screen bg-white">
+        <main className="bg-white">
             <div className="max-w-[1440px] mx-auto px-4 md:px-6 xl:px-10 py-8 xl:py-2">
                 
                 {/* Блок с вопросом */}
@@ -194,20 +194,44 @@ export default function TestPage() {
                     {/* Левый цветок */}
                     <div className="absolute left-0 top-0 w-full h-full z-10 pointer-events-none">
                         <Image
+                            src="/test/left_flower_iphone.png"
+                            alt="Left flower decoration"
+                            fill
+                            className="object-cover md:hidden"
+                        />
+                        <Image
+                            src="/test/left_flower_ipad.png"
+                            alt="Left flower decoration"
+                            fill
+                            className="object-cover hidden md:block xl:hidden"
+                        />
+                        <Image
                             src="/test/left_flower.svg"
                             alt="Left flower decoration"
                             fill
-                            className="object-cover"
+                            className="object-cover hidden xl:block"
                         />
                     </div>
 
                     {/* Правый цветок */}
                     <div className="absolute right-0 bottom-0 w-full h-full z-10 pointer-events-none">
                         <Image
+                            src="/test/right_flower_iphone.png"
+                            alt="Right flower decoration"
+                            fill
+                            className="object-contain object-bottom-right md:hidden"
+                        />
+                        <Image
+                            src="/test/right_flower_ipad.png"
+                            alt="Right flower decoration"
+                            fill
+                            className="object-contain object-bottom-right hidden md:block xl:hidden"
+                        />
+                        <Image
                             src="/test/right_flower.svg"
                             alt="Right flower decoration"
                             fill
-                            className="object-contain object-bottom-right"
+                            className="object-contain object-bottom-right hidden xl:block"
                         />
                     </div>
                     {/* Блюр слой */}
@@ -218,8 +242,8 @@ export default function TestPage() {
                         
                         {/* Счетчик вопросов сверху */}
                         <div className="flex justify-center mb-8 md:mb-12">
-                            <div className="bg-white/80 backdrop-blur-sm  rounded-full px-6 md:px-8 xl:px-3 py-2 md:py-1.3">
-                                <p className="text-[12px] md:text-[14px] xl:text-[16px] font-montserrat text-black uppercase tracking-widest">
+                            <div className="bg-white/80 backdrop-blur-sm  rounded-full px-3 md:px-8 xl:px-3 py-1 md:py-1.3">
+                                <p className="text-[8px] md:text-[14px] xl:text-[16px] font-montserrat text-black uppercase tracking-widest">
                                     ВОПРОС {currentQuestionIndex + 1} ИЗ {testQuestions.length}
                                 </p>
                             </div>
@@ -243,7 +267,7 @@ export default function TestPage() {
                                         <button
                                             key={option}
                                             onClick={() => handleAnswerSelect(option)}
-                                            className={`backdrop-blur-sm  rounded-full px-6 md:px-8 xl:px-8 py-2 md:py-4 xl:py-4 text-[12px] md:text-[14px] xl:text-[16px] font-regular font-montserrat uppercase transition-all text-left ${
+                                            className={`backdrop-blur-sm  rounded-full px-6 md:px-8 xl:px-8 py-3 md:py-4 xl:py-4 text-[8px] md:text-[14px] xl:text-[16px] font-regular font-montserrat uppercase transition-all text-left ${
                                                 isSelected
                                                     ? 'bg-brand-purple text-white '
                                                     : 'bg-white/80 text-black border-black/10 hover:bg-brand-purple hover:text-white '
@@ -259,7 +283,7 @@ export default function TestPage() {
                             <button
                                 onClick={handleNextQuestion}
                                 disabled={isMultipleChoice ? selectedAnswers.length === 0 : !selectedAnswer}
-                                className={`inline-flex items-center gap-2 rounded-full px-8 md:px-10 xl:px-5 py-3 md:py-4 text-[12px] md:text-[14px] xl:text-[14px] font-regular font-montserrat uppercase tracking-wide transition-all ${
+                                className={`inline-flex items-center gap-2 rounded-full px-4 md:px-10 xl:px-5 py-3 md:py-4 text-[8px] md:text-[14px] xl:text-[14px] font-regular font-montserrat uppercase tracking-wide transition-all ${
                                     (isMultipleChoice ? selectedAnswers.length > 0 : selectedAnswer)
                                         ? 'bg-brand-purple text-white hover:opacity-90'
                                         : 'bg-brand-purple text-white cursor-not-allowed'

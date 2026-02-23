@@ -5,10 +5,20 @@ export function TestSection() {
     return (
         <section className="py-8 md:py-12 xl:py-16">
             {/* Контейнер с рамкой */}
-            <div className="relative w-full  rounded-[16px] md:rounded-[24px] xl:rounded-[32px] overflow-hidden">
+            <div className="relative w-full rounded-[16px] md:rounded-[24px] xl:rounded-[32px] overflow-hidden">
+                
+                {/* Фоновое изображение */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/test/background_test.svg"
+                        alt="Background"
+                        fill
+                        className="object-cover"
+                    />
+                </div>
                 
                 {/* Контент */}
-                <div className="relative flex items-center justify-between  min-h-[200px] md:min-h-[280px] xl:min-h-[320px]">
+                <div className="relative flex items-center justify-between min-h-[200px] md:min-h-[280px] xl:min-h-[320px] px-4 md:px-8 xl:px-12">
                     
                     {/* Левая часть: текст и кнопка */}
                     <div className="flex-1 max-w-[650px] z-10">
@@ -45,27 +55,27 @@ export function TestSection() {
                     </div>
 
                     {/* Правая часть: картинка цветка */}
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[127px] h-[127px] md:w-[280px] md:h-[280px] xl:w-[350px] xl:h-[350px] z-0">
-                        {/* Mobile */}
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[127px] h-[127px] md:w-[280px] md:h-[280px] xl:w-[350px] xl:h-[350px] z-5">
                         <Image
                             src="/home/flower_iphone.svg"
                             alt="Flower decoration"
-                            fill
-                            className="object-contain md:hidden"
+                            width={127}
+                            height={127}
+                            className="w-full h-full object-contain md:hidden"
                         />
-                        {/* iPad */}
                         <Image
                             src="/home/flower_ipad.svg"
                             alt="Flower decoration"
-                            fill
-                            className="object-contain hidden md:block xl:hidden"
+                            width={280}
+                            height={280}
+                            className="w-full h-full object-contain hidden md:block xl:hidden"
                         />
-                        {/* Desktop */}
                         <Image
                             src="/home/flower_desktop.svg"
                             alt="Flower decoration"
-                            fill
-                            className="object-contain hidden xl:block"
+                            width={350}
+                            height={350}
+                            className="w-full h-full object-contain hidden xl:block"
                         />
                     </div>
                 </div>

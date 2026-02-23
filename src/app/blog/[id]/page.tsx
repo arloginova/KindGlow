@@ -52,7 +52,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
     const contentSections = parseContentToSections(article.content, article.sections);
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="bg-white">
             <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-10 py-8 lg:py-12">
 
                 {/* Хлебные крошки */}

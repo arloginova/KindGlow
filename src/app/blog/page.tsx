@@ -14,16 +14,17 @@ export default function BlogPage() {
     const sliderRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
     return (
-        <main className="min-h-screen bg-white">
-            <div className="max-w-[1440px] mx-auto px-2 md:px-4 lg:px-5 py-8 lg:py-12">
+        <main className="bg-white">
+            <div className="max-w-[1440px] mx-auto px-2 md:px-4 xl:px-5 py-8 md:py-8 xl:py-12">
 
                 {/* Секции по категориям */}
-                {CATEGORIES.map(({ key, label }) => {
+                {CATEGORIES.map(({ key, label }, index) => {
                     const categoryArticles = articles.filter(a => a.category === key);
+                    const isLast = index === CATEGORIES.length - 1;
 
                     return (
-                        <section key={key} className="mb-12 lg:mb-16">
-                            <h2 className="text-[20px] lg:text-[40px] font-tan-pearl text-black uppercase mb-6 lg:mb-8 font-montserrat">
+                        <section key={key} className={isLast ? '' : 'mb-5 md:mb-12 xl:mb-16'}>
+                            <h2 className="text-[18px] xl:text-[40px] font-montserrat font-medium text-black uppercase mb-3 md:mb-6 xl:mb-8 font-montserrat">
                                 {label}
                             </h2>
 
@@ -91,6 +92,18 @@ function MobileArticleCard({ article }: { article: Article }) {
                 {/* Затемнение */}
                 <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent" />
 
+                {/* Бейджи */}
+                <div className="absolute top-2 left-2 flex flex-col items-start gap-1">
+                    {article.badges.map((badge) => (
+                        <span
+                            key={badge}
+                            className="text-[8px] font-regular font-montserrat leading-tight bg-white px-1.5 py-0.5 rounded-full"
+                        >
+                            #{badge}
+                        </span>
+                    ))}
+                </div>
+
                 {/* Квадратная картинка */}
                 <div className="absolute top-2 right-2 w-[40px] h-[40px] rounded-[7px] overflow-hidden shadow">
                     {article.squareImage ? (
@@ -102,31 +115,13 @@ function MobileArticleCard({ article }: { article: Article }) {
 
                 {/* Контент */}
                 <div className="absolute bottom-0 left-0 right-0 p-2.5">
-                    {/* Бейджи */}
-                    <div className="flex flex-wrap gap-x-1 gap-y-0 mb-1">
-                        {article.badges.map((badge) => (
-                            <span
-                                key={badge}
-                                className={`text-[8px] font-medium font-montserrat leading-tight ${badgeColors[badge] ?? 'text-gray-500'}`}
-                            >
-                                #{badge}
-                            </span>
-                        ))}
-                    </div>
 
-                    <h3 className="text-[9px] font-bold text-black uppercase font-montserrat leading-tight line-clamp-2 mb-0.5">
+                    <h3 className="text-[9px] font-bold text-black font-montserrat leading-tight line-clamp-2 mb-0.5">
                         {article.title}
                     </h3>
-                    <p className="text-[8px] text-gray-600 font-montserrat line-clamp-1 mb-1.5">
+                    <p className="text-[8px] text-gray-600 font-montserrat line-clamp-1">
                         {article.description}
                     </p>
-
-                    <button className="flex items-center gap-1 bg-white/80 backdrop-blur-sm border border-black/10 rounded-full px-2 py-1 text-[8px] font-medium font-montserrat text-black">
-                        читать
-                        <svg width="7" height="7" viewBox="0 0 10 10" fill="none">
-                            <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </Link>

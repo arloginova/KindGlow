@@ -83,25 +83,21 @@ export function VideosSection() {
                                     </span>
                                 </div>
 
-                                {/* Фиолетовая плашка с описанием при наведении */}
-                                <div className={`absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 p-4 md:p-6 xl:p-8 flex flex-col justify-center`}>
-                                    {/* Контент в центре */}
+                                {/* Hover overlay - только на md и выше */}
+                                <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 p-4 md:p-6 xl:p-8 flex flex-col justify-center`}>
                                     <div className="space-y-3 md:space-y-4">
-                                        {/* Заголовок */}
                                         <h3 className="text-white text-[14px] md:text-[18px] xl:text-[20px] font-montserrat font-medium">
                                             {video.title}
                                         </h3>
-
-                                        {/* Описание */}
                                         <p className="text-white text-[10px] md:text-[12px] xl:text-[14px] font-montserrat leading-relaxed whitespace-pre-line">
                                             {video.description}
                                         </p>
                                     </div>
                                 </div>
 
-                                {/* Кнопка перехода (справа внизу) */}
-                                <div className={`absolute bottom-4 md:bottom-6 xl:bottom-8 right-4 md:right-6 xl:right-8 w-10 h-10 md:w-12 md:h-12 xl:w-14 xl:h-14 rounded-full flex items-center justify-center transition-all duration-300 z-20 ${isHovered ? 'bg-white' : 'bg-brand-purple/80'}`}>
-                                    <svg className={`w-5 h-5 md:w-6 md:h-6 xl:w-7 xl:h-7 transition-colors duration-300 ${isHovered ? 'text-brand-purple' : 'text-white'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                {/* Кнопка с белым бордером */}
+                                <div className="absolute bottom-4 md:bottom-6 xl:bottom-8 right-4 md:right-6 xl:right-8 w-10 h-10 md:w-12 md:h-12 xl:w-14 xl:h-14 rounded-full border-2 border-white flex items-center justify-center z-20">
+                                    <svg className="w-5 h-5 md:w-6 md:h-6 xl:w-7 xl:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>

@@ -8,9 +8,12 @@ import { ArticleCard } from '@/components/Blog/ArticleCard';
 export function ArticlesSection() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
+    const thumbRef = useRef<HTMLDivElement>(null);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+    const [dragStartX, setDragStartX] = useState(0);
+    const [dragStartScroll, setDragStartScroll] = useState(0);
 
-    // Берем первые 6 статей для главной страницы
     const featuredArticles = articles.slice(0, 6);
 
     useEffect(() => {
@@ -19,9 +22,10 @@ export function ArticlesSection() {
         if (!slider || !track) return;
 
         const handleScroll = () => {
+            if (isDragging) return;
             const scrollLeft = slider.scrollLeft;
             const scrollWidth = slider.scrollWidth - slider.clientWidth;
-            const trackWidth = track.clientWidth - 100; // Ширина трека минус ширина thumb
+            const trackWidth = track.clientWidth - 100;
             
             const position = scrollWidth > 0 ? (scrollLeft / scrollWidth) * trackWidth : 0;
             setScrollPosition(position);
@@ -31,7 +35,41 @@ export function ArticlesSection() {
         handleScroll();
         
         return () => slider.removeEventListener('scroll', handleScroll);
-    }, [featuredArticles]);
+    }, [featuredArticles, isDragging]);
+
+    const handleThumbMouseDown = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsDragging(true);
+        setDragStartX(e.clientX);
+        setDragStartScroll(scrollRef.current?.scrollLeft || 0);
+    };
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!isDragging || !scrollRef.current || !trackRef.current) return;
+
+            const deltaX = e.clientX - dragStartX;
+            const trackWidth = trackRef.current.clientWidth - 100;
+            const scrollWidth = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+            
+            const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+            scrollRef.current.scrollLeft = dragStartScroll + scrollDelta;
+        };
+
+        const handleMouseUp = () => {
+            setIsDragging(false);
+        };
+
+        if (isDragging) {
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        }
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [isDragging, dragStartX, dragStartScroll]);
 
     return (
         <section className="py-8 md:py-12 xl:py-16">
@@ -71,11 +109,13 @@ export function ArticlesSection() {
             <div ref={trackRef} className="relative mt-6 md:mt-8 xl:mt-10">
                 <div className="w-full h-[4px] bg-[#E1E5FB] rounded-full" />
                 <div 
-                    className="absolute top-0 h-[4px] bg-black rounded-full transition-all duration-200"
+                    ref={thumbRef}
+                    className="absolute top-0 h-[4px] bg-black rounded-full transition-all duration-200 cursor-grab active:cursor-grabbing"
                     style={{ 
                         width: '100px',
                         left: `${scrollPosition}px`
                     }}
+                    onMouseDown={handleThumbMouseDown}
                 />
             </div>
         </section>

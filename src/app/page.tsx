@@ -7,7 +7,7 @@ import { TelegramSection } from '@/components/Home/TelegramSection';
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="bg-white">
             {/* Контейнер с отступами */}
             <div className="max-w-[1440px] mx-auto px-2 md:px-4 xl:px-5">
                 

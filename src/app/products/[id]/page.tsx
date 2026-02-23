@@ -32,7 +32,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     }
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="bg-white">
             <div className="max-w-[1440px] mx-auto px-2 md:px-4 lg:px-5 py-6">
 
                 {/* Хлебные крошки */}

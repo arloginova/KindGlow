@@ -11,7 +11,11 @@ function TestResultsContent() {
     const indicesParam = searchParams.get('indices');
     const sliderRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
+    const thumbRef = useRef<HTMLDivElement>(null);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+    const [dragStartX, setDragStartX] = useState(0);
+    const [dragStartScroll, setDragStartScroll] = useState(0);
     
     useEffect(() => {
         const slider = sliderRef.current;
@@ -19,6 +23,7 @@ function TestResultsContent() {
         if (!slider || !track) return;
 
         const handleScroll = () => {
+            if (isDragging) return; // Не обновляем при перетаскивании
             const scrollLeft = slider.scrollLeft;
             const scrollWidth = slider.scrollWidth - slider.clientWidth;
             const trackWidth = track.clientWidth - 233;
@@ -31,7 +36,42 @@ function TestResultsContent() {
         handleScroll();
         
         return () => slider.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isDragging]);
+
+    // Обработка перетаскивания thumb
+    const handleThumbMouseDown = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsDragging(true);
+        setDragStartX(e.clientX);
+        setDragStartScroll(sliderRef.current?.scrollLeft || 0);
+    };
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!isDragging || !sliderRef.current || !trackRef.current) return;
+
+            const deltaX = e.clientX - dragStartX;
+            const trackWidth = trackRef.current.clientWidth - 233;
+            const scrollWidth = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+            
+            const scrollDelta = (deltaX / trackWidth) * scrollWidth;
+            sliderRef.current.scrollLeft = dragStartScroll + scrollDelta;
+        };
+
+        const handleMouseUp = () => {
+            setIsDragging(false);
+        };
+
+        if (isDragging) {
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        }
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [isDragging, dragStartX, dragStartScroll]);
     
     if (!indicesParam) {
         return (
@@ -48,7 +88,7 @@ function TestResultsContent() {
         .filter(Boolean);
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="bg-white">
             <div className="max-w-[1440px] mx-auto px-2 md:px-6 lg:px-5 py-8 lg:py-5">
                 
                 {/* Заголовок и кнопка */}
@@ -93,7 +133,7 @@ function TestResultsContent() {
                 {/* Сетка с продуктами (Mobile и iPad) */}
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:hidden gap-2 md:gap-4">
                     {recommendedProducts.map((product) => (
-                        <div key={product.id}>
+                        <div key={`grid-${product.id}`}>
                             <ProductCard product={product} />
                         </div>
                     ))}
@@ -107,7 +147,7 @@ function TestResultsContent() {
                     <div className="flex gap-5 min-w-max">
                         {recommendedProducts.map((product) => (
                             <div 
-                                key={product.id} 
+                                key={`slider-${product.id}`} 
                                 className="w-[453px] flex-shrink-0"
                             >
                                 <ProductCard product={product} />
@@ -120,11 +160,13 @@ function TestResultsContent() {
                 <div ref={trackRef} className="hidden xl:block relative mb-16">
                     <div className="w-full h-[4px] bg-[#E1E5FB] rounded-full" />
                     <div 
-                        className="absolute top-0 h-[4px] bg-black rounded-full transition-all duration-200 z-10"
+                        ref={thumbRef}
+                        className="absolute top-0 h-[4px] bg-black rounded-full transition-all duration-200 z-10 cursor-grab active:cursor-grabbing"
                         style={{ 
                             width: '233px',
                             left: `${scrollPosition}px`
                         }}
+                        onMouseDown={handleThumbMouseDown}
                     />
                 </div>
 
