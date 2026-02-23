@@ -18,8 +18,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
     return (
         <Link href={`/blog/${article.id}`} className="block group">
             <div
-                className="relative overflow-hidden rounded-[16px] w-full"
-                style={{ width: '453px', maxWidth: '100%', height: '273px' }}
+                className="relative overflow-hidden rounded-[16px] w-full aspect-[453/273]"
             >
                 {/* Фоновое изображение */}
                 <div className="absolute inset-0">
