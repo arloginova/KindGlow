@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/types/product';
+import { useState } from 'react';
 
 interface ProductCardProps {
     product: Product;
@@ -9,18 +12,19 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: ProductCardProps) => {
-    // Для сетки всегда используем "маленькие" изображения (images), как просил юзер.
-    // Если изображение прямоугольное, оно просто займет 2 ячейки по высоте.
+    const [isHovered, setIsHovered] = useState(false);
+    
     const desktopImg = product.images.desktop;
     const tabletImg = product.images.tablet;
     const mobileImg = product.images.mobile;
 
     return (
-        <Link
-            href={`/products/${product.id}`}
+        <div
             className={`group relative block w-full overflow-hidden rounded-[24px] bg-[#F3F3F7] transition-all 
                 ${isTallLg ? 'lg:aspect-[1/2.04]' : 'lg:aspect-square'}
                 ${isTallSm ? 'aspect-[1/2.04]' : 'aspect-square'}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             {/* Изображение - фоновое */}
             <div className="absolute inset-0 w-full h-full">
@@ -70,6 +74,33 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
                     {product.description}
                 </p>
             </div>
-        </Link>
+
+            {/* Фиолетовая плашка при наведении - карточка внизу */}
+            <div className={`absolute bottom-1 left-1 right-1 lg:bottom-2 lg:left-2 lg:right-2 xl:bottom-2 xl:left-2 xl:right-2 bg-brand-purple/70 backdrop-blur-sm rounded-[16px] lg:rounded-[20px] transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-20 p-3 lg:p-4 xl:p-5 flex flex-col`}>
+                <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.5 lg:mb-1">
+                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-white uppercase leading-[1.2] font-montserrat">
+                        {product.name}
+                    </h3>
+                    <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-white whitespace-nowrap font-montserrat">
+                        {product.price.toLocaleString()} Р
+                    </span>
+                </div>
+                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-white font-normal font-montserrat leading-tight lg:leading-snug mb-3 lg:mb-4">
+                    {product.description}
+                </p>
+                
+                {/* Кнопка ПЕРЕЙТИ */}
+                <a
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-white border-1 border-black text-black rounded-full py-2 lg:py-2 text-[10px] lg:text-[12px] xl:text-[14px] font-montserrat font-medium uppercase text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <span>ПЕРЕЙТИ</span>
+                    <span className="text-[14px] lg:text-[16px]">→</span>
+                </a>
+            </div>
+        </div>
     );
 };

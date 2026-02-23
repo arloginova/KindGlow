@@ -92,7 +92,7 @@ export function TelegramSection() {
                         </div>
                         {/* Кнопка */}
                         <Link
-                            href="https://t.me/kindglow"
+                            href="https://t.me/arshklgnv"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-3 xl:px-5 py-2 xl:py-4 text-[8px] xl:text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all"

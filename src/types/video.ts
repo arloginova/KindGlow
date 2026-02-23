@@ -2,9 +2,10 @@ export interface Video {
     id: number;
     title: string;
     description: string;
-    videoUrl: string; // Google Drive URL
+    videoUrl: string;
     category: 'basics' | 'thematic' | 'reviews';
-    thumbnail?: string; // Опционально, если есть превью
+    thumbnail?: string;
+    duration?: string; // Длительность видео (например, "00:45")
 }
 
 export type VideoCategory = {

@@ -10,7 +10,7 @@ export const Footer = () => {
             >
                 {/* Иконка Telegram */}
                 <div className="absolute top-[8px] left-[8px] lg:top-[20px] lg:left-[16px] xl:top-[20px] xl:left-[20px] z-10">
-                    <Link href="https://t.me/kindglow" target="_blank" className="hover:scale-110 transition-transform block">
+                    <Link href="https://t.me/arshklgnv" target="_blank" className="hover:scale-110 transition-transform block">
                         <Image
                             src="/icon_telegram.svg"
                             alt="Telegram"

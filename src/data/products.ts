@@ -212,6 +212,7 @@ export const products: Product[] = [
             mobile: '/products/lips/9_большая_iphone.png'
         },
         category: 'губы'
+        
     },
     {
         id: '3ina-longwear-lipstick',
@@ -233,7 +234,8 @@ export const products: Product[] = [
             tablet: '/products/lips/10_большая_ipad.png',
             mobile: '/products/lips/10_большая_iphone.png'
         },
-        category: 'губы'
+        category: 'губы',
+        isTall: true
     },
     {
         id: 'dear-dahlia-paradise-shine',

@@ -1,7 +1,37 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { products } from '@/data/products';
 
 export const Header = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+    const router = useRouter();
+
+    const handleSearch = () => {
+        if (!searchQuery.trim()) {
+            router.push('/products');
+            return;
+        }
+
+        const foundProduct = products.find(product => 
+            product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        if (foundProduct) {
+            router.push(`/products/${foundProduct.id}`);
+        } else {
+            router.push('/products');
+        }
+    };
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
     return (
         <header className="w-full bg-white font-montserrat sticky top-0 z-50">
             <div className="max-w-[1440px] mx-auto px-[8px] md:px-[16px] lg:px-[16px] xl:px-[20px]">
@@ -12,7 +42,7 @@ export const Header = () => {
                         <Link href="/products" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">ПРОДУКТЫ</Link>
                         <Link href="/blog" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">СТАТЬИ</Link>
                         <Link href="/test" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors">ТЕСТ</Link>
-                        <Link href="/lessons" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors whitespace-nowrap">УРОКИ И ОБЗОРЫ</Link>
+                        <Link href="/tutorials" className="text-[14px] xl:text-[18px] font-medium tracking-tight hover:text-brand-purple transition-colors whitespace-nowrap">УРОКИ И ОБЗОРЫ</Link>
                     </nav>
 
                     {/* Мобильная кнопка поиска */}
@@ -44,12 +74,17 @@ export const Header = () => {
                                 <input
                                     type="text"
                                     placeholder="Поиск продукта"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onKeyPress={handleKeyPress}
                                     className="bg-transparent border-none outline-none text-[16px] ml:text-[16px] xl:text-[16px] w-full normal-case placeholder:text-black font-regular font-montserrat"
                                 />
                             </div>
 
                             {/* Кнопка поиска */}
-                            <button className="hidden lg:flex lg:w-[38px] lg:h-[38px] xl:w-[49px] xl:h-[49px] rounded-full bg-lavender items-center justify-center flex-shrink-0 text-white hover:opacity-90 transition-opacity">
+                            <button 
+                                onClick={handleSearch}
+                                className="hidden lg:flex lg:w-[38px] lg:h-[38px] xl:w-[49px] xl:h-[49px] rounded-full bg-lavender items-center justify-center flex-shrink-0 text-white hover:opacity-90 transition-opacity">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>
@@ -58,7 +93,7 @@ export const Header = () => {
 
                         {/* Кнопка соцсети */}
                         <Link
-                            href="#"
+                            href="https://t.me/arshklgnv"
                             className="bg-brand-purple text-white px-4 xl:px-4 h-[32px] lg:h-[38px] xl:h-[49px] flex items-center rounded-full text-[9px] xl:text-[14px] font-montserrat tracking-normal hover:opacity-90 transition-opacity whitespace-nowrap"
                         >
                             @KINDGLOW
@@ -73,7 +108,7 @@ export const Header = () => {
                     <Link href="/products" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">ПРОДУКТЫ</Link>
                     <Link href="/blog" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">СТАТЬИ</Link>
                     <Link href="/test" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">ТЕСТ</Link>
-                    <Link href="/lessons" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">УРОКИ И ОБЗОРЫ</Link>
+                    <Link href="/tutorials" className="text-[11px] font-normal tracking-tight whitespace-nowrap uppercase">УРОКИ И ОБЗОРЫ</Link>
                 </nav>
             </div>
         </header>
