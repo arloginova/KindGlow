@@ -19,7 +19,8 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
     const mobileImg = product.images.mobile;
 
     return (
-        <div
+        <Link
+            href={`/products/${product.id}`}
             className={`group relative block w-full overflow-hidden rounded-[24px] bg-[#F3F3F7] transition-all 
                 ${isTallLg ? 'lg:aspect-[1/2.04]' : 'lg:aspect-square'}
                 ${isTallSm ? 'aspect-[1/2.04]' : 'aspect-square'}`}
@@ -95,12 +96,16 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full bg-white border-1 border-black text-black rounded-full py-2 lg:py-2 text-[10px] lg:text-[12px] xl:text-[14px] font-montserrat font-medium uppercase text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.open(product.link, '_blank');
+                    }}
                 >
                     <span>ПЕРЕЙТИ</span>
                     <span className="text-[14px] lg:text-[16px]">→</span>
                 </a>
             </div>
-        </div>
+        </Link>
     );
 };
