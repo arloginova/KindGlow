@@ -6,12 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-const badgeColors: Record<string, string> = {
-    'vegan': 'border-[#6B7F5E] text-[#6B7F5E]',
-    'cruelty-free': 'border-[#7B6B8F] text-[#7B6B8F]',
-    'zero-waste': 'border-[#5E7A7A] text-[#5E7A7A]',
-};
-
 const categoryLabels: Record<string, string> = {
     'об осознанности': 'ОБ ОСОЗНАННОСТИ',
     'бренды': 'БРЕНДЫ',

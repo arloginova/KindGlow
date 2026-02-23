@@ -8,12 +8,6 @@ interface ArticleCardProps {
     article: Article;
 }
 
-const badgeColors: Record<string, string> = {
-    'vegan': 'text-[#6B7F5E]',
-    'cruelty-free': 'text-[#7B6B8F]',
-    'zero-waste': 'text-[#5E7A7A]',
-};
-
 export function ArticleCard({ article }: ArticleCardProps) {
     return (
         <Link href={`/blog/${article.id}`} className="block group">

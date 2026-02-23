@@ -13,10 +13,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     const [activeTab, setActiveTab] = useState<'application' | 'composition' | 'brand'>('application');
 
     const recommendedProducts = useMemo(() => {
-        return products
-            .filter((p) => p.id !== id && !p.isTall)
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 3);
+        const filtered = products.filter((p) => p.id !== id && !p.isTall);
+        // Используем детерминированную сортировку на основе id
+        const shuffled = [...filtered].sort((a, b) => {
+            const hashA = a.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            const hashB = b.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            return hashA - hashB;
+        });
+        return shuffled.slice(0, 3);
     }, [id]);
 
     if (!product) {
@@ -148,7 +152,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         {['application', 'composition'].map((tab) => (
                             <button
                                 key={tab}
-                                onClick={() => setActiveTab(tab as any)}
+                                onClick={() => setActiveTab(tab as 'application' | 'composition')}
                                 className={`pb-4 text-[10px] xl:text-[18px] font-regular uppercase tracking-widest transition-all relative whitespace-nowrap ${activeTab === tab ? 'text-black' : 'text-gray-400'
                                     }`}
                             >

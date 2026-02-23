@@ -1,12 +1,12 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Suspense } from 'react';
 import { products } from '@/data/products';
 import { ProductCard } from '@/components/Catalog/ProductCard';
 import Link from 'next/link';
 
-export default function TestResultsPage() {
+function TestResultsContent() {
     const searchParams = useSearchParams();
     const indicesParam = searchParams.get('indices');
     const sliderRef = useRef<HTMLDivElement>(null);
@@ -21,15 +21,13 @@ export default function TestResultsPage() {
         const handleScroll = () => {
             const scrollLeft = slider.scrollLeft;
             const scrollWidth = slider.scrollWidth - slider.clientWidth;
-            const trackWidth = track.clientWidth - 233; // Ширина трека минус ширина thumb
+            const trackWidth = track.clientWidth - 233;
             
-            // Вычисляем позицию thumb (от 0 до trackWidth)
             const position = scrollWidth > 0 ? (scrollLeft / scrollWidth) * trackWidth : 0;
             setScrollPosition(position);
         };
 
         slider.addEventListener('scroll', handleScroll);
-        // Инициализируем позицию при монтировании
         handleScroll();
         
         return () => slider.removeEventListener('scroll', handleScroll);
@@ -44,11 +42,7 @@ export default function TestResultsPage() {
     }
 
     const productIndices = indicesParam.split(',').map(Number);
-    
-    // Получаем продукты из категории "лицо"
     const faceProducts = products.filter(p => p.category === 'лицо');
-    
-    // Получаем рекомендованные продукты по индексам (индексы начинаются с 1)
     const recommendedProducts = productIndices
         .map(index => faceProducts[index - 1])
         .filter(Boolean);
@@ -72,8 +66,6 @@ export default function TestResultsPage() {
                     
                     {/* Правая часть: кнопка */}
                     <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-
-                        {/* Кнопка */}
                         <Link
                             href="/test"
                             className="inline-flex items-center gap-2 bg-white border border-brand-purple rounded-full px-4 md:px-8 lg:px-10 py-2.5 md:py-4 text-[8px] md:text-[14px] lg:text-[16px] text-brand-purple font-medium font-montserrat uppercase tracking-wide hover:bg-black hover:text-white transition-all whitespace-nowrap"
@@ -97,8 +89,6 @@ export default function TestResultsPage() {
                         </Link>
                     </div>
                 </div>
-
-                
 
                 {/* Сетка с продуктами (Mobile и iPad) */}
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:hidden gap-2 md:gap-4">
@@ -140,5 +130,17 @@ export default function TestResultsPage() {
 
             </div>
         </main>
+    );
+}
+
+export default function TestResultsPage() {
+    return (
+        <Suspense fallback={
+            <main className="min-h-screen bg-white flex items-center justify-center">
+                <p>Загрузка результатов...</p>
+            </main>
+        }>
+            <TestResultsContent />
+        </Suspense>
     );
 }
