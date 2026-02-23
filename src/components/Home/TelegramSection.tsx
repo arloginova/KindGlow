@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function TelegramSection() {
     return (
-        <section className="py-8 md:py-12 xl:py-16">
+        <section className="py-8 md:py-[60px] xl:py-[76px]">
             {/* Контейнер */}
             <div className="flex flex-row gap-12 md:gap-70 xl:gap-100">
                 

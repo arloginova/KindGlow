@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function TestSection() {
     return (
-        <section className="py-8 md:py-12 xl:py-16">
+        <section className="py-8 md:py-[60px] xl:py-[76px]">
             {/* Контейнер с рамкой */}
             <div className="relative w-full rounded-[16px] md:rounded-[24px] xl:rounded-[32px] overflow-hidden">
                 

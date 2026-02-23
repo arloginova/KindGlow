@@ -2,17 +2,20 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { products } from '@/data/products';
 
 export const Header = () => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
     const router = useRouter();
+    const searchOverlayRef = useRef<HTMLDivElement>(null);
 
     const handleSearch = () => {
         if (!searchQuery.trim()) {
             router.push('/products');
+            setIsMobileSearchOpen(false);
             return;
         }
 
@@ -25,6 +28,7 @@ export const Header = () => {
         } else {
             router.push('/products');
         }
+        setIsMobileSearchOpen(false);
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -32,6 +36,23 @@ export const Header = () => {
             handleSearch();
         }
     };
+
+    // Закрытие при клике вне поля поиска
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (searchOverlayRef.current && !searchOverlayRef.current.contains(event.target as Node)) {
+                setIsMobileSearchOpen(false);
+            }
+        };
+
+        if (isMobileSearchOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMobileSearchOpen]);
     return (
         <header className="w-full bg-white font-montserrat sticky top-0 z-50">
             <div className="max-w-[1440px] mx-auto px-[8px] md:px-[16px] lg:px-[16px] xl:px-[20px]">
@@ -47,12 +68,57 @@ export const Header = () => {
 
                     {/* Мобильная кнопка поиска */}
                     <div className="lg:hidden">
-                        <button className="w-[32px] h-[32px] rounded-full bg-lavender flex items-center justify-center text-white">
+                        <button 
+                            onClick={() => setIsMobileSearchOpen(true)}
+                            className="w-[32px] h-[32px] rounded-full bg-lavender flex items-center justify-center text-white"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                             </svg>
                         </button>
                     </div>
+
+                    {/* Поле поиска на мобильных (появляется в шапке) */}
+                    {isMobileSearchOpen && (
+                        <div 
+                            className="fixed top-0 left-0 right-0 bg-white z-[100] lg:hidden shadow-md animate-slideDown"
+                            style={{ 
+                                animation: 'slideDown 0.3s ease-out'
+                            }}
+                        >
+                            <div className="max-w-[1440px] mx-auto px-[8px] pt-10 pb-6" ref={searchOverlayRef}>
+                                <div className="flex items-center gap-3">
+                                    <button 
+                                        onClick={() => setIsMobileSearchOpen(false)}
+                                        className="w-[32px] h-[32px] rounded-full bg-lavender flex items-center justify-center text-white flex-shrink-0 hover:opacity-90 transition-opacity"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                    <div className="flex-1 flex items-center border-2 border-lavender rounded-full px-4 h-[32px] transition-all focus-within:border-brand-purple">
+                                        <input
+                                            type="text"
+                                            placeholder="Поиск продукта"
+                                            value={searchQuery}
+                                            onChange={(e) => setSearchQuery(e.target.value)}
+                                            onKeyPress={handleKeyPress}
+                                            autoFocus
+                                            className="bg-transparent border-none outline-none text-[14px] w-full placeholder:text-gray-400 font-regular font-montserrat"
+                                        />
+                                    </div>
+                                    <button 
+                                        onClick={handleSearch}
+                                        className="w-[32px] h-[32px] rounded-full bg-brand-purple flex items-center justify-center text-white flex-shrink-0 hover:opacity-90 transition-opacity"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Логотип */}
                     <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">

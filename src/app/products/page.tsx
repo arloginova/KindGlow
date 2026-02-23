@@ -31,17 +31,17 @@ export default function CatalogPage() {
             <div className="max-w-[1440px] mx-auto px-2 md:px-4 lg:px-5 py-8 lg:py-12">
 
                 {/* Заголовок */}
-                <h1 className="text-[30px] lg:text-[50px] font-tan-pearl text-black uppercase mb-8 lg:block">
+                <h1 className="text-[18px] md:text[38px] xl:text-[50px] font-tan-pearl text-black uppercase mb-8 lg:block">
                     КАТАЛОГ
                 </h1>
 
                 {/* Навигация по категориям */}
-                <div className="flex overflow-x-auto no-scrollbar gap-4 md:gap-6 lg:gap-10 mb-8 md:mb-12 pb-4">
+                <div className="flex overflow-x-auto no-scrollbar gap-4 md:gap-6 lg:gap-10 mb-2 md:mb-5 pb-4">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`text-[14px] lg:text-[16px] font-normal tracking-tight whitespace-nowrap transition-colors hover:text-brand-purple ${
+                            className={`text-[10px] lg:text-[16px] font-normal tracking-tight whitespace-nowrap transition-colors hover:text-brand-purple ${
                                 activeCategory === cat ? 'text-brand-purple border-b-2 border-brand-purple pb-4 -mb-[18px]' : 'text-black'
                             }`}
                         >

@@ -66,7 +66,7 @@ export default function TestPage() {
     if (!testStarted) {
         return (
             <main className="bg-white">
-                <div className="max-w-[1440px] mx-auto px-2 md:px-6 xl:px-4 py-8 xl:py-2">
+                <div className="max-w-[1440px] mx-auto px-2 md:px-4 xl:px-4 py-8 xl:py-2">
                     
                     {/* Баннер */}
                     <div className="relative w-full max-w-[377px] md:max-w-[992px] xl:max-w-[1400px] mx-auto rounded-[24px] md:rounded-[32px] xl:rounded-[40px] overflow-hidden h-[519px] md:h-[869px] xl:h-[726px]">

@@ -87,7 +87,7 @@ export function ProductsSection() {
     }, [isDragging, dragStartX, dragStartScroll]);
 
     return (
-        <section className="py-8 md:py-12 xl:py-16">
+        <section className="py-8 md:py-[60px] xl:py-[76px]">
             {/* Заголовок */}
             <h2 className="text-[24px] md:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase mb-6 md:mb-8 xl:mb-10">
                 НАШИ НАХОДКИ

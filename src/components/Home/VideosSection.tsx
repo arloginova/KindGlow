@@ -24,7 +24,7 @@ export function VideosSection() {
     };
 
     return (
-        <section className="py-8 md:py-12 xl:py-16">
+        <section className="py-8 md:py-[60px] xl:py-[76px]">
             {/* Заголовок и кнопка */}
             <div className="flex items-center justify-between mb-6 md:mb-8 xl:mb-10">
                 <h2 className="text-[24px] md:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase">
@@ -77,7 +77,7 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Длительность (справа вверху) */}
-                                <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-3 md:px-4 py-1 md:py-1.5 z-20">
+                                <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-4 py-0.5 md:py-1.5 z-20">
                                     <span className="text-[10px] md:text-[12px] xl:text-[14px] font-montserrat font-medium text-black">
                                         {video.duration || '00:00'}
                                     </span>
@@ -96,7 +96,7 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Кнопка с белым бордером */}
-                                <div className="absolute bottom-4 md:bottom-6 xl:bottom-8 right-4 md:right-6 xl:right-8 w-10 h-10 md:w-12 md:h-12 xl:w-14 xl:h-14 rounded-full border-2 border-white flex items-center justify-center z-20">
+                                <div className="absolute bottom-4 md:bottom-6 xl:bottom-8 right-4 md:right-6 xl:right-8 w-10 h-10 md:w-12 md:h-12 xl:w-14 xl:h-14 rounded-full border-1 border-white flex items-center justify-center z-20">
                                     <svg className="w-5 h-5 md:w-6 md:h-6 xl:w-7 xl:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
