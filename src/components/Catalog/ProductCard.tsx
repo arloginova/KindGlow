@@ -76,17 +76,17 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
                 </p>
             </div>
 
-            {/* Фиолетовая плашка при наведении - карточка внизу */}
-            <div className={`absolute bottom-1 left-1 right-1 lg:bottom-2 lg:left-2 lg:right-2 xl:bottom-2 xl:left-2 xl:right-2 bg-brand-purple/70 backdrop-blur-sm rounded-[16px] lg:rounded-[20px] transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-20 p-3 lg:p-4 xl:p-5 flex flex-col`}>
-                <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.5 lg:mb-1">
-                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-white uppercase leading-[1.2] font-montserrat">
+            {/* Фиолетовая плашка при наведении - карточка сверху */}
+            <div className={`absolute top-1 left-1 right-1 lg:top-2 lg:left-2 lg:right-2 xl:top-2 xl:left-2 xl:right-2 bg-brand-purple/70 backdrop-blur-sm rounded-[16px] lg:rounded-[20px] transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-20 p-3 lg:p-4 xl:p-5 flex flex-col items-start text-left`}>
+                <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.5 lg:mb-1 w-full">
+                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-white uppercase leading-[1.2] font-montserrat text-left">
                         {product.name}
                     </h3>
                     <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-white whitespace-nowrap font-montserrat">
                         {product.price.toLocaleString()} Р
                     </span>
                 </div>
-                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-white font-normal font-montserrat leading-tight lg:leading-snug mb-3 lg:mb-4">
+                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-white font-normal font-montserrat leading-tight lg:leading-snug mb-3 lg:mb-4 text-left">
                     {product.description}
                 </p>
                 

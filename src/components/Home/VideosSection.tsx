@@ -77,7 +77,7 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Длительность (справа вверху) */}
-                                <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-4 py-0.5 md:py-1.5 z-20">
+                                <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-4 py-0.5 md:py-1 z-20">
                                     <span className="text-[10px] md:text-[12px] xl:text-[14px] font-montserrat font-medium text-black">
                                         {video.duration || '00:00'}
                                     </span>
@@ -85,8 +85,8 @@ export function VideosSection() {
 
                                 {/* Hover overlay - только на md и выше */}
                                 <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
-                                    <div className="absolute left-4 md:left-6 xl:left-8 bottom-16 md:bottom-20 xl:bottom-24 right-4 md:right-6 xl:right-8 space-y-3 md:space-y-4 text-left">
-                                        <h3 className="text-white text-[14px] md:text-[18px] xl:text-[100px] font-montserrat font-medium">
+                                    <div className="absolute left-4 md:left-6 xl:left-8 top-16 md:top-20 xl:top-24 right-4 md:right-6 xl:right-8 space-y-3 md:space-y-4 text-left">
+                                        <h3 className="text-white text-[14px] md:text-[18px] xl:text-[22px] font-montserrat font-medium">
                                             {video.title}
                                         </h3>
                                         <p className="text-white text-[10px] md:text-[12px] xl:text-[14px] font-montserrat leading-relaxed whitespace-pre-line">
