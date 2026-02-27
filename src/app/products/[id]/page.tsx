@@ -38,7 +38,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 {/* Хлебные крошки */}
                 <nav className="flex items-center gap-2 text-[12px] lg:text-[18px] uppercase tracking-widest mb-6 lg:mb-10 font-montserrat">
                     <Link href="/products" className="text-black hover:text-black transition-colors">КАТАЛОГ</Link>
-                    <span className="text-black">&gt;</span>
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="w-2 h-2 lg:w-3 lg:h-3">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                     <span className="text-black font-regular uppercase">{product.category}</span>
                 </nav>
 
@@ -119,7 +121,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
                         {/* Краткое описание (Десктоп) */}
                         <div className="hidden lg:block mb-7">
-                            <h2 className="text-[12px] xl:text-[14px] font-bold uppercase tracking-widest mb-4 font-montserrat">
+                            <h2 className="text-[12px] xl:text-[14px] font-bold uppercase tracking-widest mb-2 font-montserrat">
                                 Описание продукта
                             </h2>
                             <p className="text-[12px] xl:text-[16px] text-black font-montserrat leading-relaxed">

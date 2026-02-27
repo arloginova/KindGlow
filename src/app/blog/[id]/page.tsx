@@ -58,7 +58,9 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                 {/* Хлебные крошки */}
                 <nav className="flex items-center gap-2 text-[12px] lg:text-[18px] uppercase tracking-widest mb-6 lg:mb-10 font-montserrat">
                     <Link href="/blog" className="text-black hover:text-black transition-colors">СТАТЬИ</Link>
-                    <span className="text-black">&gt;</span>
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="w-2 h-2 lg:w-3 lg:h-3">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                     <span className="text-black font-regular uppercase">{categoryLabels[article.category]}</span>
                 </nav>
 
@@ -143,7 +145,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                         )}
 
                         {/* Содержание с фоном */}
-                        <div className="relative w-full aspect-[320/254] xl:aspect-[453/296] rounded-[16px] overflow-hidden p-6 xl:p-10 flex flex-col justify-center shadow-sm">
+                        <div className="relative w-full rounded-[16px] overflow-hidden p-6 xl:p-10 shadow-sm">
                             {/* Фон */}
                             <div className="absolute inset-0 z-0">
                                 <Image

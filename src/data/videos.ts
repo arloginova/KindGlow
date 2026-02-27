@@ -1,7 +1,7 @@
 import { Video } from '@/types/video';
 
 export const videos: Video[] = [
-    // РАЗДЕЛ: ВИДЕО МАКИЯЖ С ОСНОВ
+    // РАЗДЕЛ: макияж с основ
     {
         id: 1,
         title: 'О себе',
@@ -22,7 +22,7 @@ export const videos: Video[] = [
     },
     {
         id: 3,
-        title: 'Прокаливание слизистой',
+        title: 'Прокрашивание слизистой',
         description: 'Многие думают, что карандаш для слизистой —\nопасная часть для макияжа, особенно для начинающих.\nНа самом деле — если соблюдать ряд правил, то лайнер\nвыглядит гармонично и не стирается в течении дня.\nВ этом видео я описала базовые правила\nдля аккуратной подводки слизистой глаза.',
         videoUrl: 'https://www.dropbox.com/scl/fi/th6ud1at5anctrrwesunp/3.mp4?rlkey=rf4sjavyxhtd7k4lt44gql3ik&st=sn6hzpna&raw=1',
         category: 'basics',
@@ -143,7 +143,7 @@ export const videos: Video[] = [
 export const videoCategories = [
     {
         id: 'basics',
-        name: 'ВИДЕО МАКИЯЖ С ОСНОВ',
+        name: 'МАКИЯЖ С ОСНОВ',
         videos: videos.filter(v => v.category === 'basics')
     },
     {

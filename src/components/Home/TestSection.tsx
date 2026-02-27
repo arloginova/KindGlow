@@ -49,7 +49,9 @@ export function TestSection() {
                                 className="inline-flex items-center gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-2 md:px-3 xl:px-4 py-2 md:py-3 text-[12px] md:text-[14px] xl:text-[16px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white transition-all"
                             >
                                 <span>ПРОЙТИ ТЕСТ</span>
-                                <span className="text-[6px] md:text-[13px] xl:text-[20px]">&gt;</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-2 h-2 md:w-3 md:h-3 xl:w-4 xl:h-4">
+                                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
                             </Link>
                         </div>
                     </div>

@@ -72,7 +72,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
                         </div>
 
                         {/* Кнопка читать — только на десктопе */}
-                        <button className="hidden xl:flex flex-shrink-0 items-center gap-1.5 bg-white/80 backdrop-blur-sm border border-black rounded-full px-7 py-1 text-[16px] font-medium font-montserrat text-black whitespace-nowrap transition-all duration-200 group-hover:bg-black group-hover:text-white">
+                        <button className="hidden xl:flex flex-shrink-0 items-center gap-1.5 bg-white/80 backdrop-blur-sm border border-black rounded-full px-7 py-1 text-[16px] font-medium font-montserrat text-black whitespace-nowrap transition-all duration-200 group-hover:bg-gray-200 group-hover:border-gray-400">
                             читать
                             <svg
                                 width="10"

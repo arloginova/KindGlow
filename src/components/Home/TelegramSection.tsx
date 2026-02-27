@@ -80,7 +80,7 @@ export function TelegramSection() {
                         осознанный уход, честные бренды, устойчивые привычки и маленькие шаги, приносящие спокойствие
                     </p>
                     {/* Звездочка и кнопка */}
-                    <div className="flex items-center gap-3 md:gap-4">
+                    <div className="flex items-center gap-3 md:gap-3">
                         <div className="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10 flex-shrink-0">
                             <Image
                                 src="/test/star_test.svg"

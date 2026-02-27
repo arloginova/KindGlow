@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
+import { YandexMetrika } from "@/components/Analytics/YandexMetrika";
 
 const montserrat = Montserrat({
     subsets: ["latin", "cyrillic"],
@@ -34,6 +35,7 @@ export default function RootLayout({
                     {children}
                 </main>
                 <Footer />
+                <YandexMetrika />
             </body>
         </html>
     );

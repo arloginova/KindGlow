@@ -104,9 +104,9 @@ export function HeroBanner() {
                 >
                     <span>УРОКИ МАКИЯЖА</span>
                     <div className="w-[20px] h-[20px] md:w-[38px] md:h-[38px] xl:w-[52px] xl:h-[52px] bg-black rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-white text-[5px] md:text-[15px] xl:text-[28px] font-light">
-                            &gt;
-                        </span>
+                        <svg width="28" height="28" viewBox="0 0 20 20" fill="none" className="w-2 h-2 md:w-4 md:h-4 xl:w-6 xl:h-6">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
                     </div>
                 </Link>
 

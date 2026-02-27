@@ -124,12 +124,12 @@ export default function TutorialsPage() {
                                             </div>
 
                                             {/* Hover overlay - только на md и выше */}
-                                            <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 p-4 md:p-6 xl:p-8 flex flex-col justify-center`}>
-                                                <div className="space-y-3 md:space-y-4">
-                                                    <h3 className="text-white text-[14px] md:text-[18px] xl:text-[20px] font-montserrat font-medium">
+                                            <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 flex flex-col justify-center items-start px-4 md:px-6 xl:px-8 pt-16 md:pt-20 xl:pt-24`}>
+                                                <div className="space-y-3 md:space-y-4 max-w-full">
+                                                    <h3 className="text-white text-[12px] md:text-[14px] xl:text-[16px] font-montserrat font-medium">
                                                         {video.title}
                                                     </h3>
-                                                    <p className="text-white text-[10px] md:text-[12px] xl:text-[14px] font-montserrat leading-relaxed whitespace-pre-line">
+                                                    <p className="text-white text-[9px] md:text-[10px] xl:text-[12px] font-montserrat leading-relaxed whitespace-pre-line">
                                                         {video.description}
                                                     </p>
                                                 </div>
