@@ -84,9 +84,9 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Hover overlay - только на md и выше */}
-                                <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 p-4 md:p-6 xl:p-8 flex flex-col justify-center`}>
-                                    <div className="space-y-3 md:space-y-4">
-                                        <h3 className="text-white text-[14px] md:text-[18px] xl:text-[20px] font-montserrat font-medium">
+                                <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
+                                    <div className="absolute left-4 md:left-6 xl:left-8 bottom-16 md:bottom-20 xl:bottom-24 right-4 md:right-6 xl:right-8 space-y-3 md:space-y-4 text-left">
+                                        <h3 className="text-white text-[14px] md:text-[18px] xl:text-[100px] font-montserrat font-medium">
                                             {video.title}
                                         </h3>
                                         <p className="text-white text-[10px] md:text-[12px] xl:text-[14px] font-montserrat leading-relaxed whitespace-pre-line">

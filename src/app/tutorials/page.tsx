@@ -124,7 +124,7 @@ export default function TutorialsPage() {
                                             </div>
 
                                             {/* Hover overlay - только на md и выше */}
-                                            <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 flex flex-col justify-center items-start px-4 md:px-6 xl:px-8 pt-16 md:pt-20 xl:pt-24`}>
+                                            <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 flex flex-col justify-center items-center px-4 md:px-6 xl:px-8 text-center`}>
                                                 <div className="space-y-3 md:space-y-4 max-w-full">
                                                     <h3 className="text-white text-[12px] md:text-[14px] xl:text-[16px] font-montserrat font-medium">
                                                         {video.title}
@@ -152,11 +152,11 @@ export default function TutorialsPage() {
 
             {/* Модальное окно */}
             {selectedVideo && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black z-50 flex items-center justify-center md:p-4 xl:p-8"
                     onClick={closeVideoModal}
                 >
-                    <div 
+                    <div
                         className="relative w-full h-full md:max-w-[450px] xl:max-w-[500px] md:aspect-[9/16] md:h-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -197,14 +197,14 @@ export default function TutorialsPage() {
                                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                                             <div className="w-16 h-16 md:w-20 md:h-20 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center">
                                                 <svg className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M8 5v14l11-7z"/>
+                                                    <path d="M8 5v14l11-7z" />
                                                 </svg>
                                             </div>
                                         </div>
                                     )}
 
                                     {/* Кнопка звука со слайдером */}
-                                    <div 
+                                    <div
                                         className="absolute top-4 right-4 z-30 flex items-center gap-2"
                                         onMouseEnter={() => setShowVolumeSlider(true)}
                                         onMouseLeave={() => setShowVolumeSlider(false)}
@@ -252,7 +252,7 @@ export default function TutorialsPage() {
                                     <h3 className="text-white text-[16px] md:text-[18px] font-montserrat font-medium mb-2">
                                         {selectedVideo.title}
                                     </h3>
-                                    <p 
+                                    <p
                                         className={`text-white text-[12px] md:text-[14px] font-montserrat leading-relaxed whitespace-pre-line transition-all duration-300 ${isDescriptionExpanded ? 'line-clamp-none' : 'line-clamp-3'}`}
                                     >
                                         {selectedVideo.description}
