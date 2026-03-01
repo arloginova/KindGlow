@@ -117,19 +117,19 @@ export default function TutorialsPage() {
                                                 </span>
                                             </div>
 
-                                            <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-3 md:px-4 py-1 md:py-1.5 z-20">
+                                            <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-3 py-0.5 md:py-1 z-20">
                                                 <span className="text-[10px] md:text-[12px] xl:text-[14px] font-montserrat font-medium text-black">
                                                     {video.duration || '00:00'}
                                                 </span>
                                             </div>
 
                                             {/* Hover overlay - только на md и выше */}
-                                            <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 flex flex-col justify-center items-center px-4 md:px-6 xl:px-8 text-center`}>
-                                                <div className="space-y-3 md:space-y-4 max-w-full">
-                                                    <h3 className="text-white text-[12px] md:text-[14px] xl:text-[16px] font-montserrat font-medium">
+                                            <div className={`hidden md:block absolute inset-0 bg-brand-purple/70 backdrop-blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10 pt-24 md:pt-28 xl:pt-32`}>
+                                                <div className="px-4 md:px-6 xl:px-8 space-y-2 md:space-y-3 text-left">
+                                                    <h3 className="text-white text-[14px] md:text-[18px] xl:text-[22px] font-montserrat font-medium">
                                                         {video.title}
                                                     </h3>
-                                                    <p className="text-white text-[9px] md:text-[10px] xl:text-[12px] font-montserrat leading-relaxed whitespace-pre-line">
+                                                    <p className="text-white text-[10px] md:text-[12px] xl:text-[14px] font-montserrat leading-relaxed line-clamp-5">
                                                         {video.description}
                                                     </p>
                                                 </div>
