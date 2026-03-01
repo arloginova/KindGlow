@@ -83,7 +83,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Заголовок */}
-                        <h1 className="text-[24px] md:text-[32px] lg:text-[40px] xl:text-[50px] font-montserrat font-semibold text-black uppercase leading-tight mb-2 md:mb-3">
+                        <h1 className="text-[24px] md:text-[32px] lg:text-[40px] xl:text-[50px] font-montserrat font-semibold text-black uppercase leading-tight mb-1 md:mb-2">
                             {article.title}
                         </h1>
 

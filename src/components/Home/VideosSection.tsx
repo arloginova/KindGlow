@@ -33,10 +33,12 @@ export function VideosSection() {
 
                 <Link
                     href="/tutorials"
-                    className="hidden md:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-6 xl:px-5 py-2 xl:py-3 text-[12px] xl:text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
+                    className="hidden md:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
                 >
                     <span>СМОТРЕТЬ ВСЁ</span>
-                    <span className="text-[16px] xl:text-[20px]">&gt;</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                 </Link>
             </div>
 
@@ -77,7 +79,7 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Длительность (справа вверху) */}
-                                <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-4 py-0.5 md:py-1 z-20">
+                                <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-4 py-0.5 md:py-1  z-20">
                                     <span className="text-[10px] md:text-[12px] xl:text-[14px] font-montserrat font-medium text-black">
                                         {video.duration || '00:00'}
                                     </span>

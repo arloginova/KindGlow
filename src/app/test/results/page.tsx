@@ -92,7 +92,7 @@ function TestResultsContent() {
             <div className="max-w-[1440px] mx-auto px-2 md:px-6 lg:px-5 py-8 lg:py-5">
                 
                 {/* Заголовок и кнопка */}
-                <div className="flex  md:flex-row md:items-start md:justify-between gap-3 md:gap-8 mb-8 md:mb-12 lg:mb-12">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-8 mb-8 md:mb-12 lg:mb-12">
                     {/* Левая часть: заголовок и описание */}
                     <div className="flex-1">
                         <h1 className="text-[18px] md:text-[35px] lg:text-[50px] font-montserrat font-medium text-black uppercase leading-tight mb-1 md:mb-1">
@@ -105,10 +105,10 @@ function TestResultsContent() {
                     </div>
                     
                     {/* Правая часть: кнопка */}
-                    <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
+                    <div className="flex items-start gap-3 md:gap-4 flex-shrink-0 mt-2 md:mt-3 lg:mt-4">
                         <Link
                             href="/test"
-                            className="inline-flex items-center gap-2 bg-white border border-brand-purple rounded-full px-4 md:px-8 lg:px-10 py-2.5 md:py-4 text-[8px] md:text-[14px] lg:text-[16px] text-brand-purple font-medium font-montserrat uppercase tracking-wide hover:bg-black hover:text-white transition-all whitespace-nowrap"
+                            className="inline-flex items-center gap-2 bg-white border border-brand-purple rounded-full px-4 md:px-8 lg:px-10 py-2.5 md:py-4 text-[8px] md:text-[14px] lg:text-[16px] text-brand-purple font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all whitespace-nowrap group"
                         >
                             <span>ПРОЙТИ ТЕСТ ЗАНОВО</span>
                             <svg 

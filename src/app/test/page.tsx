@@ -87,13 +87,13 @@ export default function TestPage() {
                             <div className="max-w-[600px]">
                                 {/* Бейджи */}
                                 <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-8 xl:mb-10">
-                                    <span className="px-3 md:px-4 xl:px-5 py-1 md:py-1.5 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
+                                    <span className="px-1.5 md:px-2 xl:px-2 py-1 md:py-1 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
                                         cruelty-free
                                     </span>
-                                    <span className="px-3 md:px-4 xl:px-5 py-1 md:py-1.5 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
+                                    <span className="px-1.5 md:px-2 xl:px-2 py-1 md:py-1 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
                                         vegan
                                     </span>
-                                    <span className="px-3 md:px-4 xl:px-5 py-1 md:py-1.5 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
+                                    <span className="px-1.5 md:px-2 xl:px-2 py-1 md:py-1 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
                                         zero-waste
                                     </span>
                                 </div>
@@ -124,8 +124,8 @@ export default function TestPage() {
                                     {/* Кнопка */}
                                     <button
                                         onClick={() => setTestStarted(true)}
-                                        className="inline-flex items-center gap-2 bg-none border text-brand-purple border-brand-purple rounded-full px-4 md:px-8 xl:px-4 py-2 md:py-4 text-[8px] md:text-[14px] xl:text-[16px] font-medium font-montserrat uppercase tracking-wide hover:bg-black hover:text-white transition-all"
-                                    >
+                                        className="inline-flex items-center gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-2 md:px-3 xl:px-4 py-2 md:py-3 text-[12px] md:text-[14px] xl:text-[16px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                            >
                                         <span>ПРОЙТИ ТЕСТ</span>
                                         <svg 
                                             width="16" 

@@ -120,10 +120,11 @@ export function ProductsSection() {
                 {/* Кнопка "Смотреть весь каталог" - скрыта на мобиле */}
                 <Link
                     href="/products"
-                    className="hidden md:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-6 xl:px-5 py-2 xl:py-3 text-[12px] xl:text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
+                    className="hidden md:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
+            
                 >
                     <span>СМОТРЕТЬ ВЕСЬ КАТАЛОГ</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-3 h-3 xl:w-4 xl:h-4">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4">
                         <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </Link>

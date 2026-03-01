@@ -39,7 +39,7 @@ export const Footer = () => {
                                     className="bg-transparent border-none outline-none text-[9px] xl:text-[14px] w-full normal-case placeholder:text-black font-montserrat"
                                 />
                             </div>
-                            <button className="bg-brand-purple text-white px-3 xl:px-5 h-[28px] lg:h-[38px] xl:h-[49px] rounded-full text-[8px] xl:text-[14px] font-normal tracking-tight xl:tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap uppercase">
+                            <button className="bg-brand-purple text-white px-3 xl:px-5 h-[28px] lg:h-[38px] xl:h-[49px] rounded-full text-[8px] xl:text-[14px] font-normal tracking-tight hover:opacity-90 transition-opacity whitespace-nowrap uppercase">
                                 ПОДПИСАТЬСЯ
                             </button>
                         </div>

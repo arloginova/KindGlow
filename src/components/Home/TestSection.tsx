@@ -5,17 +5,9 @@ export function TestSection() {
     return (
         <section className="py-8 md:py-[60px] xl:py-[76px]">
             {/* Контейнер с рамкой */}
-            <div className="relative w-full rounded-[16px] md:rounded-[24px] xl:rounded-[32px] overflow-hidden">
+            <div className="relative w-full rounded-[16px] md:rounded-[24px] xl:rounded-[32px]">
                 
-                {/* Фоновое изображение */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/test/background_test.svg"
-                        alt="Background"
-                        fill
-                        className="object-cover"
-                    />
-                </div>
+
                 
                 {/* Контент */}
                 <div className="relative flex items-center justify-between min-h-[200px] md:min-h-[280px] xl:min-h-[320px] px-4 md:px-8 xl:px-12">
@@ -31,7 +23,7 @@ export function TestSection() {
                         </p>
 
                         {/* Кнопка с звездочкой */}
-                        <div className="flex items-center gap-3 md:gap-4">
+                        <div className="flex items-center gap-3 md:gap-3">
                             {/* Звездочка */}
                             <div className="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10 flex-shrink-0">
                                 <Image
@@ -46,7 +38,7 @@ export function TestSection() {
                             {/* Кнопка */}
                             <Link
                                 href="/test"
-                                className="inline-flex items-center gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-2 md:px-3 xl:px-4 py-2 md:py-3 text-[12px] md:text-[14px] xl:text-[16px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white transition-all"
+                                className="inline-flex items-center gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-2 md:px-3 xl:px-4 py-2 md:py-3 text-[12px] md:text-[14px] xl:text-[16px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
                             >
                                 <span>ПРОЙТИ ТЕСТ</span>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-2 h-2 md:w-3 md:h-3 xl:w-4 xl:h-4">
@@ -57,7 +49,7 @@ export function TestSection() {
                     </div>
 
                     {/* Правая часть: картинка цветка */}
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[127px] h-[127px] md:w-[280px] md:h-[280px] xl:w-[350px] xl:h-[350px] z-5">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[127px] h-[127px] md:w-[280px] md:h-[280px] xl:w-[320px] xl:h-[320px] z-5">
                         <Image
                             src="/home/flower_iphone.svg"
                             alt="Flower decoration"
