@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function HeroBanner() {
     return (
-        <section className="relative w-full max-w-[377px] md:max-w-[992px] xl:max-w-[1400px] h-[293px] md:h-[514px] xl:h-[726px] mx-auto overflow-hidden rounded-[16px] md:rounded-[24px] xl:rounded-[32px]">
+        <section className="relative w-full max-w-[377px] md:max-w-[992px] xl:max-w-[1400px] h-[293px] md:h-[514px] xl:h-[726px] mx-auto overflow-hidden rounded-[16px] md:rounded-[24px] xl:rounded-[32px] mt-4 xl:mt-2">
             {/* Задний фон */}
             <div className="absolute inset-0 z-0">
                 {/* Mobile */}

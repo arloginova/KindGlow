@@ -103,7 +103,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         </div>
 
                         {/* Бейджи */}
-                        <div className="flex flex-wrap gap-3 mb-4 lg:mb-8">
+                        <div className="flex flex-wrap gap-1 mb-4 lg:mb-8">
                             {product.badges.map((badge) => (
                                 <span
                                     key={badge}
@@ -137,7 +137,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 className="inline-flex items-center justify-center border border-black rounded-full py-1 md:px-25 xl:px-[38px] text-[12px] xl:text-[16px] font-regular normal-case hover:bg-black hover:text-white transition-all font-montserrat group"
                             >
                                 <span>перейти</span>
-                                <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className="ml-2 w-2 h-2 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </Link>
@@ -182,7 +182,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                         className="inline-flex w-full lg:w-auto items-center justify-center border border-black rounded-full py-1 px-10 text-[10px] font-regular normal-case hover:bg-black hover:text-white transition-all font-montserrat group"
                     >
                         <span>перейти</span>
-                        <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="ml-2 w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </Link>

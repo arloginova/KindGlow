@@ -85,7 +85,60 @@ export default function TutorialsPage() {
                             {category.name}
                         </h2>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
+                        {/* Слайдер для мобильных и планшетов */}
+                        <div className="xl:hidden overflow-x-auto no-scrollbar pb-4">
+                            <div className="flex gap-2 md:gap-4 min-w-max">
+                                {category.videos.map((video) => {
+                                    const videoNumber = getVideoNumberInCategory(video);
+                                    const isHovered = hoveredVideo === video.id;
+
+                                    return (
+                                        <div
+                                            key={video.id}
+                                            className="relative cursor-pointer group w-[185px] md:w-[320px] flex-shrink-0"
+                                            onClick={() => openVideoModal(video)}
+                                            onMouseEnter={() => setHoveredVideo(video.id)}
+                                            onMouseLeave={() => setHoveredVideo(null)}
+                                        >
+                                            <div className="relative w-full h-[253px] md:h-[425px] rounded-[16px] md:rounded-[24px] overflow-hidden">
+                                                {video.videoUrl ? (
+                                                    <video
+                                                        src={video.videoUrl}
+                                                        className="absolute inset-0 w-full h-full object-cover"
+                                                        muted
+                                                        playsInline
+                                                        preload="metadata"
+                                                    />
+                                                ) : (
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200" />
+                                                )}
+
+                                                <div className="absolute top-3 md:top-4 left-3 md:left-4 z-20">
+                                                    <span className="text-[12px] md:text-[16px] font-montserrat font-normal text-white drop-shadow-lg">
+                                                        /{String(videoNumber).padStart(2, '0')}
+                                                    </span>
+                                                </div>
+
+                                                <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-3 py-0.5 md:py-1 z-20">
+                                                    <span className="text-[10px] md:text-[12px] font-montserrat font-medium text-black">
+                                                        {video.duration || '00:00'}
+                                                    </span>
+                                                </div>
+
+                                                <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white flex items-center justify-center z-20">
+                                                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* Сетка для десктопа */}
+                        <div className="hidden xl:grid grid-cols-4 gap-8">
                             {category.videos.map((video) => {
                                 const videoNumber = getVideoNumberInCategory(video);
                                 const isHovered = hoveredVideo === video.id;

@@ -30,13 +30,13 @@ export const Footer = () => {
                     </h2>
 
                     <div className="absolute top-[8px] lg:top-[100px] xl:top-[131px] right-[8px] lg:right-0 w-[240px] lg:w-full lg:max-w-[400px] xl:max-w-[550px] space-y-2 lg:space-y-4">
-                        <h4 className="text-[9px] xl:text-[16px] font-bold tracking-tight text-black lowercase text-left">подпишись, чтобы узнать о новинках</h4>
+                        <h4 className="text-[9px] lg:text-[12px] xl:text-[16px] font-bold tracking-tight text-black lowercase text-left">подпишись, чтобы узнать о новинках</h4>
                         <div className="flex items-center gap-2 xl:gap-3">
                             <div className="flex bg-white rounded-full border border-gray-100 h-[28px] lg:h-[38px] xl:h-[49px] w-full items-center px-3 xl:px-5">
                                 <input
                                     type="email"
                                     placeholder="Введите вашу почту"
-                                    className="bg-transparent border-none outline-none text-[9px] xl:text-[14px] w-full normal-case placeholder:text-black font-montserrat"
+                                    className="bg-transparent border-none outline-none text-[9px] lg:text-[12px] xl:text-[14px] w-full normal-case placeholder:text-black font-montserrat"
                                 />
                             </div>
                             <button className="bg-brand-purple text-white px-3 xl:px-5 h-[28px] lg:h-[38px] xl:h-[49px] rounded-full text-[8px] xl:text-[14px] font-normal tracking-tight hover:opacity-90 transition-opacity whitespace-nowrap uppercase">

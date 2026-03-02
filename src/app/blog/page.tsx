@@ -105,7 +105,7 @@ function MobileArticleCard({ article }: { article: Article }) {
                 </div>
 
                 {/* Квадратная картинка */}
-                <div className="absolute top-2 right-2 w-[40px] h-[40px] rounded-[7px] overflow-hidden shadow">
+                <div className="absolute top-2 right-2 w-[53px] h-[53px] rounded-[7px] overflow-hidden shadow">
                     {article.squareImage ? (
                         <Image src={article.squareImage} alt="" fill className="object-cover" />
                     ) : (

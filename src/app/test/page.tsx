@@ -86,7 +86,7 @@ export default function TestPage() {
                             
                             <div className="max-w-[600px]">
                                 {/* Бейджи */}
-                                <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-8 xl:mb-10">
+                                <div className="flex flex-wrap gap-2 md:gap-2 mb-4 md:mb-8 xl:mb-10">
                                     <span className="px-1.5 md:px-2 xl:px-2 py-1 md:py-1 rounded-full border border-black text-[8px] md:text-[12px] xl:text-[14px] font-medium font-montserrat bg-none backdrop-blur-sm">
                                         cruelty-free
                                     </span>
@@ -99,7 +99,7 @@ export default function TestPage() {
                                 </div>
 
                                 {/* Заголовок */}
-                                <h1 className="text-[18px] md:text-[48px] xl:text-[50px] font-montserrat font-medium text-black uppercase leading-tight mb-3 md:mb-6">
+                                <h1 className="text-[18px] md:text-[48px] xl:text-[50px] font-montserrat font-medium text-black uppercase leading-tight mb-1 md:mb-2">
                                     НАЙДИ СВОЙ<br />ИДЕАЛЬНЫЙ УХОД
                                 </h1>
                                 
@@ -109,7 +109,7 @@ export default function TestPage() {
                                 </p>
 
                                 {/* Звездочка и кнопка */}
-                                <div className="flex items-center gap-2 md:gap-4">
+                                <div className="flex items-center gap-1 md:gap-2">
                                     {/* SVG звездочка слева от кнопки */}
                                     <div className="w-5 h-5 md:w-8 md:h-8 xl:w-10 xl:h-10 flex-shrink-0">
                                         <Image
