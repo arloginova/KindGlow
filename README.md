@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌸 KindGlow
 
-## Getting Started
+Современный веб-сайт для бренда осознанной косметики KindGlow, созданный с использованием Next.js 15 и TypeScript.
 
-First, run the development server:
+## ✨ Особенности
+
+- 🎨 **Современный дизайн** - адаптивный интерфейс с плавными переходами
+- 📱 **Полная адаптивность** - оптимизация для всех устройств (mobile, tablet, desktop)
+- 🧪 **Интерактивный тест** - персональный подбор косметики
+- 📝 **Блог** - статьи об осознанном уходе и брендах
+- 🎥 **Видео-уроки** - обучающие материалы по макияжу
+- 🛍️ **Каталог продуктов** - cruelty-free, vegan, zero-waste косметика
+- 📊 **Яндекс.Метрика** - аналитика посещений
+
+## 🛠️ Технологии
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Package Manager:** Yarn v4
+- **Fonts:** Montserrat, Custom (Tan Pearl)
+- **Analytics:** Яндекс.Метрика
+
+## 📦 Установка
 
 ```bash
-npm run dev
-# or
+# Клонировать репозиторий
+git clone <repository-url>
+
+# Перейти в директорию проекта
+cd kindglow
+
+# Установить зависимости
+yarn install
+
+# Запустить dev сервер
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Структура проекта
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+kindglow/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── blog/              # Страницы блога
+│   │   ├── products/          # Каталог продуктов
+│   │   ├── test/              # Интерактивный тест
+│   │   └── tutorials/         # Видео-уроки
+│   ├── components/            # React компоненты
+│   │   ├── Home/             # Компоненты главной страницы
+│   │   ├── Blog/             # Компоненты блога
+│   │   ├── Catalog/          # Компоненты каталога
+│   │   ├── Header/           # Шапка сайта
+│   │   └── Footer/           # Подвал сайта
+│   ├── data/                  # Данные приложения
+│   │   ├── articles.ts       # Статьи блога
+│   │   ├── products.ts       # Продукты
+│   │   ├── videos.ts         # Видео-уроки
+│   │   ├── testQuestions.ts  # Вопросы теста
+│   │   └── testLogic.ts      # Логика теста
+│   └── types/                 # TypeScript типы
+├── public/                    # Статические файлы
+│   ├── home/                 # Изображения главной
+│   ├── products/             # Изображения продуктов
+│   ├── articles/             # Изображения статей
+│   └── test/                 # Изображения теста
+└── .agent/                    # Правила для агентов
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Основные страницы
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Главная страница
+- Hero баннер с призывом к действию
+- Секция видео-уроков
+- Каталог продуктов
+- Статьи блога
+- Блок теста
+- Telegram канал
+- Футер с подпиской
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Каталог продуктов
+- Фильтрация по категориям
+- Карточки продуктов с hover эффектами
+- Детальные страницы продуктов
 
-## Deploy on Vercel
+### Блог
+- Категории статей
+- Адаптивные карточки
+- Полные статьи с изображениями
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Интерактивный тест
+- Многошаговый опросник
+- Персональные рекомендации
+- Результаты с подборкой продуктов
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Видео-уроки
+- Категории видео
+- Превью с hover эффектами
+- Детальные описания
+
+## 🚀 Команды
+
+```bash
+# Разработка
+yarn dev
+
+# Сборка для продакшена
+yarn build
+
+# Запуск продакшен сервера
+yarn start
+
+# Линтинг
+yarn lint
+```
+
+## 🎯 Ключевые компоненты
+
+### HeroBanner
+Главный баннер с адаптивным дизайном и призывом к действию.
+
+### ProductCard
+Карточка продукта с hover эффектами и детальной информацией.
+
+### ArticleCard
+Карточка статьи с фоновым изображением и бейджами.
+
+### TestSection
+Интерактивный блок теста с логикой подбора продуктов.
+
+### VideosSection
+Секция с видео-уроками и категориями.
+
+## 📊 Аналитика
+
+Проект интегрирован с Яндекс.Метрикой для отслеживания:
+- Посещений страниц
+- Поведения пользователей
+- Конверсий
+
+## 🌐 SEO
+
+- Метатеги для всех страниц
+- Open Graph теги
+- Оптимизированные изображения
+- Семантическая разметка
+
+## 📝 Лицензия
+
+Все права защищены © 2025 KindGlow
+
+## 👥 Контакты
+
+- **Telegram:** [@kindglow](https://t.me/arshklgnv)
+- **Website:** [kindglow.com](https://kindglow.com)
+
+---
+
+Сделано с 💜 для осознанной красоты
