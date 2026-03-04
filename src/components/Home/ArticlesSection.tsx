@@ -72,16 +72,16 @@ export function ArticlesSection() {
     }, [isDragging, dragStartX, dragStartScroll]);
 
     return (
-        <section className="py-8 md:py-[60px] xl:py-[76px]">
+        <section className="py-8 sm:py-10 md:py-12 lg:py-[60px] xl:py-[76px]">
             {/* Заголовок и кнопка */}
-            <div className="flex items-center justify-between mb-6 md:mb-8 xl:mb-10">
-                <h2 className="text-[24px] md:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase">
+            <div className="flex items-center justify-between mb-6 sm:mb-7 md:mb-7.5 lg:mb-8 xl:mb-10">
+                <h2 className="text-[24px] sm:text-[30px] md:text-[33px] lg:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase">
                     СТАТЬИ
                 </h2>
 
                 <Link
                     href="/blog"
-                   className="hidden md:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
+                   className="hidden lg:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
                 >
                     <span>СМОТРЕТЬ ВСЁ</span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4">
@@ -95,11 +95,11 @@ export function ArticlesSection() {
                 ref={scrollRef}
                 className="overflow-x-auto no-scrollbar pb-4"
             >
-                <div className="flex gap-4 md:gap-6 xl:gap-8 min-w-max">
+                <div className="flex gap-4 sm:gap-5 md:gap-5.5 lg:gap-6 xl:gap-8 min-w-max">
                     {featuredArticles.map((article) => (
                         <div 
                             key={article.id}
-                            className="w-[185px] md:w-[320px] xl:w-[453px] flex-shrink-0"
+                            className="w-[185px] sm:w-[250px] md:w-[285px] lg:w-[320px] xl:w-[453px] flex-shrink-0"
                         >
                             <ArticleCard article={article} />
                         </div>
@@ -108,7 +108,7 @@ export function ArticlesSection() {
             </div>
 
             {/* Индикатор скролла */}
-            <div ref={trackRef} className="relative mt-6 md:mt-8 xl:mt-10">
+            <div ref={trackRef} className="relative mt-6 sm:mt-7 md:mt-7.5 lg:mt-8 xl:mt-10">
                 <div className="w-full h-[4px] bg-[#E1E5FB] rounded-full" />
                 <div 
                     ref={thumbRef}

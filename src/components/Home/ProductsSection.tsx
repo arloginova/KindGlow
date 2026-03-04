@@ -87,14 +87,14 @@ export function ProductsSection() {
     }, [isDragging, dragStartX, dragStartScroll]);
 
     return (
-        <section className="py-8 md:py-[60px] xl:py-[76px]">
+        <section className="py-8 sm:py-10 md:py-12 lg:py-[60px] xl:py-[76px]">
             {/* Заголовок */}
-            <h2 className="text-[24px] md:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase mb-6 md:mb-8 xl:mb-10">
+            <h2 className="text-[24px] sm:text-[30px] md:text-[33px] lg:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase mb-6 sm:mb-7 md:mb-7.5 lg:mb-8 xl:mb-10">
                 НАШИ НАХОДКИ
             </h2>
 
             {/* Категории и кнопка */}
-            <div className="flex items-center justify-between mb-6 md:mb-8 xl:mb-10">
+            <div className="flex items-center justify-between mb-6 sm:mb-7 md:mb-7.5 lg:mb-8 xl:mb-10">
                 {/* Слайдер категорий */}
                 <div 
                     ref={categoryScrollRef}
@@ -105,7 +105,7 @@ export function ProductsSection() {
                             <button
                                 key={category.id}
                                 onClick={() => setSelectedCategory(category.id)}
-                                className={`text-[12px] md:text-[14px] xl:text-[16px] font-montserrat uppercase whitespace-nowrap transition-all ${
+                                className={`text-[12px] sm:text-[13px] md:text-[13px] lg:text-[14px] xl:text-[16px] font-montserrat uppercase whitespace-nowrap transition-all ${
                                     selectedCategory === category.id
                                         ? 'text-black font-medium'
                                         : 'text-gray-400 font-normal hover:text-gray-600'
@@ -120,7 +120,7 @@ export function ProductsSection() {
                 {/* Кнопка "Смотреть весь каталог" - скрыта на мобиле */}
                 <Link
                     href="/products"
-                    className="hidden md:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
+                    className="hidden lg:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
             
                 >
                     <span>СМОТРЕТЬ ВЕСЬ КАТАЛОГ</span>
@@ -135,11 +135,11 @@ export function ProductsSection() {
                 ref={productScrollRef}
                 className="overflow-x-auto no-scrollbar pb-4"
             >
-                <div className="flex gap-4 md:gap-6 xl:gap-8 min-w-max">
+                <div className="flex gap-4 sm:gap-5 md:gap-5.5 lg:gap-6 xl:gap-8 min-w-max">
                     {filteredProducts.slice(0, 6).map((product) => (
                         <div 
                             key={product.id} 
-                            className="w-[185px] md:w-[320px] xl:w-[453px] flex-shrink-0"
+                            className="w-[185px] sm:w-[250px] md:w-[285px] lg:w-[320px] xl:w-[453px] flex-shrink-0"
                         >
                             <ProductCard product={product} />
                         </div>
@@ -148,7 +148,7 @@ export function ProductsSection() {
             </div>
 
             {/* Индикатор скролла */}
-            <div ref={trackRef} className="relative mt-6 md:mt-8 xl:mt-10">
+            <div ref={trackRef} className="relative mt-6 sm:mt-7 md:mt-7.5 lg:mt-8 xl:mt-10">
                 <div className="w-full h-[4px] bg-[#E1E5FB] rounded-full" />
                 <div 
                     ref={thumbRef}
