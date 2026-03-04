@@ -156,7 +156,7 @@ yarn lint
 ## 👥 Контакты
 
 - **Telegram:** [@kindglow](https://t.me/arshklgnv)
-- **Website:** [kindglow.com](https://kindglow.com)
+- **Website:** [kindglow.com](https://kind-glow.vercel.app)
 
 ---
 
