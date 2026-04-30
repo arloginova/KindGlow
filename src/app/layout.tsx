@@ -9,12 +9,14 @@ import { YandexMetrika } from "@/components/Analytics/YandexMetrika";
 const montserrat = Montserrat({
     subsets: ["latin", "cyrillic"],
     variable: "--font-montserrat",
-    weight: ['400', '500', '600', '700']
+    weight: ["400", "500", "600", "700"],
+    display: "swap",
 });
 
-const tanPearl = localFont({
-    src: "../../public/fonts/tan-pearl.otf",
-    variable: "--font-tan-pearl",
+const kudryashev = localFont({
+    src: "../../public/fonts/kudryashev-display.ttf",
+    variable: "--font-kudryashev-display",
+    display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,9 +31,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru">
-            <body className={`${montserrat.variable} ${tanPearl.variable} antialiased min-h-screen flex flex-col`}>
+            <body className={`${montserrat.variable} ${kudryashev.variable} antialiased min-h-screen flex flex-col`}>
                 <Header />
-                <main className="flex-grow mb-8 md:mb-[60px] xl:mb-[76px]">
+                <main className="grow mb-0.25 lg:mb-0">
                     {children}
                 </main>
                 <Footer />

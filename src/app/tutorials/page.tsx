@@ -77,11 +77,11 @@ export default function TutorialsPage() {
 
     return (
         <main className="bg-white">
-            <div className="max-w-[1440px] mx-auto px-[8px] md:px-[16px] xl:px-[20px] py-8 md:py-12 xl:py-16">
+            <div className="max-w-360 mx-auto px-2 lg:px-4 xl:px-5 py-6.25 lg:py-3 xl:py-0 pb-1.5 lg:pb-1.5 xl:pb-5">
                 {/* Категории видео */}
                 {videoCategories.map((category) => (
-                    <section key={category.id} className="mb-12 md:mb-16 xl:mb-20">
-                        <h2 className="text-[20px] md:text-[28px] xl:text-[36px] font-montserrat font-medium text-black uppercase mb-6 md:mb-8 xl:mb-10">
+                    <section key={category.id} className="mb-2.25 lg:mb-10 xl:mb-12.5">
+                        <h2 className="text-[18px] lg:text-[35px] xl:text-[50px] font-montserrat font-medium text-black uppercase mb-6.5 lg:mb-8.5 xl:mb-12.5">
                             {category.name}
                         </h2>
 
@@ -95,12 +95,12 @@ export default function TutorialsPage() {
                                     return (
                                         <div
                                             key={video.id}
-                                            className="relative cursor-pointer group w-[185px] md:w-[320px] flex-shrink-0"
+                                            className="relative cursor-pointer group w-46.25 md:w-[320px] shrink-0"
                                             onClick={() => openVideoModal(video)}
                                             onMouseEnter={() => setHoveredVideo(video.id)}
                                             onMouseLeave={() => setHoveredVideo(null)}
                                         >
-                                            <div className="relative w-full h-[253px] md:h-[425px] rounded-[16px] md:rounded-[24px] overflow-hidden">
+                                            <div className="relative w-full h-63.25 md:h-106.25 rounded-2xl md:rounded-3xl overflow-hidden">
                                                 {video.videoUrl ? (
                                                     <video
                                                         src={video.videoUrl}
@@ -110,23 +110,23 @@ export default function TutorialsPage() {
                                                         preload="metadata"
                                                     />
                                                 ) : (
-                                                    <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200" />
+                                                    <div className="absolute inset-0 bg-linear-to-br from-gray-300 to-gray-200" />
                                                 )}
 
-                                                <div className="absolute top-3 md:top-4 left-3 md:left-4 z-20">
-                                                    <span className="text-[12px] md:text-[16px] font-montserrat font-normal text-white drop-shadow-lg">
+                                                <div className="absolute top-[-1.5px] lg:top-2.5 xl:top-4.5 left-2 lg:left-4 xl:left-5 z-20">
+                                                    <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat font-normal text-white drop-shadow-lg">
                                                         /{String(videoNumber).padStart(2, '0')}
                                                     </span>
                                                 </div>
 
-                                                <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-3 py-0.5 md:py-1 z-20">
-                                                    <span className="text-[10px] md:text-[12px] font-montserrat font-medium text-black">
-                                                        {video.duration || '00:00'}
+                                                <div className="absolute top-2 lg:top-4 xl:top-5 right-2 lg:right-4 xl:right-5 bg-white px-[4.5px] lg:px-1.75 xl:px-2 py-1 xl:py-1.5 rounded-full z-20 inline-flex items-center">
+                                                    <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat text-black leading-none">
+                                                    {video.duration || '00:00'}
                                                     </span>
                                                 </div>
 
-                                                <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white flex items-center justify-center z-20">
-                                                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white flex items-center justify-center z-20">
+                                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                                     </svg>
                                                 </div>
@@ -151,7 +151,7 @@ export default function TutorialsPage() {
                                         onMouseEnter={() => setHoveredVideo(video.id)}
                                         onMouseLeave={() => setHoveredVideo(null)}
                                     >
-                                        <div className="relative w-full h-[253px] md:h-[425px] xl:h-[470px] rounded-[16px] md:rounded-[24px] overflow-hidden">
+                                        <div className="relative w-full h-63.25 md:h-106.25 xl:h-117.5 rounded-2xl md:rounded-3xl overflow-hidden">
                                             {video.videoUrl ? (
                                                 <video
                                                     src={video.videoUrl}
@@ -161,17 +161,17 @@ export default function TutorialsPage() {
                                                     preload="metadata"
                                                 />
                                             ) : (
-                                                <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200" />
+                                                <div className="absolute inset-0 bg-linear-to-brrom-gray-300 to-gray-200" />
                                             )}
 
-                                            <div className="absolute top-3 md:top-4 xl:top-5 left-3 md:left-4 xl:left-5 z-20">
-                                                <span className="text-[12px] md:text-[16px] xl:text-[18px] font-montserrat font-normal text-white drop-shadow-lg">
+                                            <div className="absolute top-[-1.5px] lg:top-2.5 xl:top-4.5 left-2 lg:left-4 xl:left-5 z-20">
+                                                <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat font-normal text-white drop-shadow-lg">
                                                     /{String(videoNumber).padStart(2, '0')}
                                                 </span>
                                             </div>
 
-                                            <div className="absolute top-3 md:top-4 xl:top-5 right-3 md:right-4 xl:right-5 bg-white/90 backdrop-blur-sm rounded-full px-2 md:px-3 py-0.5 md:py-1 z-20">
-                                                <span className="text-[10px] md:text-[12px] xl:text-[14px] font-montserrat font-medium text-black">
+                                            <div className="absolute top-2 lg:top-4 xl:top-5 right-2 lg:right-4 xl:right-5 bg-white px-[4.5px] lg:px-1.75 xl:px-2 py-1 xl:py-1.5 rounded-full z-20 inline-flex items-center">
+                                                <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat text-black leading-none">
                                                     {video.duration || '00:00'}
                                                 </span>
                                             </div>
@@ -189,8 +189,8 @@ export default function TutorialsPage() {
                                             </div>
 
                                             {/* Кнопка с белым бордером */}
-                                            <div className="absolute bottom-4 md:bottom-6 xl:bottom-8 right-4 md:right-6 xl:right-8 w-10 h-10 md:w-12 md:h-12 xl:w-14 xl:h-14 rounded-full border-2 border-white flex items-center justify-center z-20">
-                                                <svg className="w-5 h-5 md:w-6 md:h-6 xl:w-7 xl:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                            <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white flex items-center justify-center z-20">
+                                                <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                                 </svg>
                                             </div>
@@ -210,7 +210,7 @@ export default function TutorialsPage() {
                     onClick={closeVideoModal}
                 >
                     <div
-                        className="relative w-full h-full md:max-w-[450px] xl:max-w-[500px] md:aspect-[9/16] md:h-auto"
+                        className="relative w-full h-full md:max-w-112.5l:max-w-125aspect-9/16d:h-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Кнопка закрытия - стрелка назад */}
@@ -223,7 +223,7 @@ export default function TutorialsPage() {
                             </svg>
                         </button>
 
-                        <div className="relative w-full h-full md:rounded-[16px] xl:rounded-[24px] overflow-hidden bg-black">
+                        <div className="relative w-full h-full md:rounded-2xl xl:rounded-3xl overflow-hidden bg-black">
                             {selectedVideo.videoUrl ? (
                                 <>
                                     {selectedVideo.videoUrl.includes('dropbox') ? (
@@ -278,7 +278,7 @@ export default function TutorialsPage() {
                                         {/* Кнопка звука */}
                                         <button
                                             onClick={toggleMute}
-                                            className="w-10 h-10 md:w-12 md:h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/50 transition-all flex-shrink-0"
+                                            className="w-10 h-10 md:w-12 md:h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/50 transition-all shrink-0"
                                         >
                                             {volume === 0 ? (
                                                 <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -300,8 +300,8 @@ export default function TutorialsPage() {
                             )}
 
                             {/* Описание с затемнением */}
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 md:p-6 pointer-events-none">
-                                <div className="max-h-[200px] overflow-hidden pointer-events-auto">
+                            <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black via-black/80 to-transparent p-4 md:p-6 pointer-events-none">
+                                <div className="max-h-50 overflow-hidden pointer-events-auto">
                                     <h3 className="text-white text-[16px] md:text-[18px] font-montserrat font-medium mb-2">
                                         {selectedVideo.title}
                                     </h3>

@@ -146,7 +146,6 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
 
                         {/* Содержание с фоном */}
                         <div className="relative w-full rounded-[16px] overflow-hidden p-6 xl:p-10 shadow-sm">
-                            {/* Фон */}
                             <div className="absolute inset-0 z-0">
                                 <Image
                                     src="/articles/background_content.svg"
@@ -156,7 +155,6 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                                 />
                             </div>
 
-                            {/* Контент поверх фона */}
                             <div className="relative z-10 w-full">
                                 <p className="text-[10px] md:text-[11px] font-semibold font-montserrat text-black uppercase tracking-widest mb-3 md:mb-4">
                                     СОДЕРЖАНИЕ

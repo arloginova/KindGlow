@@ -15,6 +15,66 @@ const categories = [
     'КИСТИ И СПОНЖИ'
 ];
 
+function AdvertisingBanner() {
+    return (
+        <div className="relative w-full h-[136px] lg:h-[262px] xl:h-[350px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
+            <Image
+                src="/advertising/background_advertising.jpg"
+                alt="Background"
+                fill
+                className="object-cover"
+            />
+
+            <div className="relative h-full flex px-3 py-3 lg:px-9 lg:py-9 xl:px-11.25 xl:py-11">
+                <div className="relative z-10 flex-1 max-w-[400px] lg:max-w-[460px] xl:max-w-[650px]">
+                    <h2 className="text-[18px] lg:text-[35px] xl:text-[50px] font-montserrat font-medium leading-5.5 lg:leading-10.75 xl:leading-15.25 text-black mb-1 lg:mb-2 xl:mb-3">
+                        <span className="lg:hidden">
+                            НЕ ЗНАЕШЬ КАКОЙ<br />УХОД ПОДОЙДЁТ?
+                        </span>
+                        <span className="hidden lg:inline">
+                            НЕ ЗНАЕШЬ КАКОЙ<br />УХОД ПОДОЙДЁТ ТЕБЕ?
+                        </span>
+                    </h2>
+                    <p className="text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat font-semibold leading-2.5 lg:leading-3.75 xl:leading-5 text-black mb-4 lg:mb-5 xl:mb-7">
+                        Пройди тест и мы подберём средства,<br />которые подойдут именно тебе
+                    </p>
+
+                    <div className="flex items-center gap-1 xl:gap-2">
+                        <div className="w-3.5 h-3.5 lg:w-5.75 lg:h-5.75 xl:w-8.25 xl:h-8.25 flex-shrink-0">
+                            <Image
+                                src="/test/star_test.svg"
+                                alt="Star"
+                                width={40}
+                                height={40}
+                                className="w-full h-full"
+                            />
+                        </div>
+                        <Link
+                            href="/test"
+                            className="inline-flex items-center gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border-[0.7px] xl:border border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                        >
+                            <span>ПРОЙТИ ТЕСТ</span>
+
+                            <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="w-1.25 h-1.25 lg:w-1.75 lg:h-1.75 xl:w-2.25 xl:h-2.25">
+                                <path d="M0.248057 0.24999H4.20507M4.20507 0.24999V4.207M4.20507 0.24999L0.248057 4.207" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="absolute right-3 lg:right-9 xl:right-13.25 bottom-0 w-[187px] lg:w-[423px] xl:w-[498px] h-[99px] lg:h-[224px] xl:h-[264px] z-0">
+                    <Image
+                        src="/advertising/photo_advertising.png"
+                        alt="Products"
+                        fill
+                        className="object-contain object-bottom"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function CatalogPage() {
     const [activeCategory, setActiveCategory] = useState('ВСЕ ТОВАРЫ');
 
@@ -28,21 +88,25 @@ export default function CatalogPage() {
 
     return (
         <main className="bg-white">
-            <div className="max-w-[1440px] mx-auto px-2 md:px-4 lg:px-5 py-8 lg:py-12">
+            <div className="max-w-[1440px] mx-auto px-2 lg:px-4 xl:px-4.75 py-6.25 lg:py-3 xl:py-0">
 
                 {/* Заголовок */}
-                <h1 className="text-[18px] md:text[38px] xl:text-[50px] font-tan-pearl text-black uppercase mb-8 lg:block">
+                <h1 className="text-[18px] lg:text-[35px] xl:text-[50px] text-black uppercase font-medium mb-6.25 lg:mb-9.25 xl:mb-14 lg:block">
                     КАТАЛОГ
                 </h1>
 
                 {/* Навигация по категориям */}
-                <div className="flex overflow-x-auto no-scrollbar gap-4 md:gap-6 lg:gap-10 mb-2 md:mb-5 pb-4">
-                    {categories.map((cat) => (
+                <div className="flex overflow-x-auto no-scrollbar gap-5.25 lg:gap-6 xl:gap-8.25 mb-6.5 lg:mb-9.5 xl:mb-14.75">
+                    {categories.map((cat, index) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`text-[10px] lg:text-[16px] font-normal tracking-tight whitespace-nowrap transition-colors hover:text-brand-purple ${
-                                activeCategory === cat ? 'text-brand-purple border-b-2 border-brand-purple pb-4 -mb-[18px]' : 'text-black'
+                            className={`text-[10px] lg:text-[13px] xl:text-[18px] font-montserrat uppercase whitespace-nowrap transition-all cursor-pointer ${
+                                activeCategory === cat
+                                ? 'text-black font-medium'
+                                : 'font-normal hover:text-gray-400'
+                            } ${
+                                index === 0 ? 'mr-6 md:mr-16 xl:mr-25.25' : ''
                             }`}
                         >
                             {cat}
@@ -51,7 +115,7 @@ export default function CatalogPage() {
                 </div>
 
                 {/* Сетка товаров */}
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-5 auto-rows-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2.25 md:gap-4 xl:gap-5 auto-rows-auto">
                     {(() => {
                         const result = [];
                         
@@ -118,84 +182,8 @@ export default function CatalogPage() {
                             // Вставляем баннер после второго блока
                             if (blockIndex === 1) {
                                 result.push(
-                                    <div key="advertising-banner" className="col-span-2 lg:col-span-3 my-4 md:my-6 lg:my-8" style={{ gridRow: gridRowDesktop, gridColumn: '1 / -1' }}>
-                                        <div className="relative w-full h-[136px] md:h-[262px] xl:h-[350px] rounded-[24px] md:rounded-[32px] lg:rounded-[40px] overflow-hidden">
-                                            {/* Фоновое изображение */}
-                                            <Image
-                                                src="/advertising/background_advertising_iphone.svg"
-                                                alt="Background"
-                                                fill
-                                                className="object-cover md:hidden"
-                                            />
-                                            <Image
-                                                src="/advertising/background_advertising_ipad.svg"
-                                                alt="Background"
-                                                fill
-                                                className="object-cover hidden md:block lg:hidden"
-                                            />
-                                            <Image
-                                                src="/advertising/background_advertising_desktop.svg"
-                                                alt="Background"
-                                                fill
-                                                className="object-cover hidden lg:block"
-                                            />
-                                            
-                                            {/* Контент */}
-                                            <div className="relative h-full flex items-center p-4 md:p-8 lg:p-12">
-                                                <div className="flex-1 max-w-[400px] lg:max-w-[650px]">
-                                                    <h2 className="text-[16px] md:text-[35px] xl:text-[50px] font-montserrat font-medium text-black leading-tight mb-2 md:mb-2 xl:mb-3">
-                                                        НЕ ЗНАЕШЬ КАКОЙ<br />УХОД ПОДОЙДЁТ ТЕБЕ?
-                                                    </h2>
-                                                    <p className="text-[8px] md:text-[12px] xl:text-[16px] font-semibold leading-tight font-montserrat text-black mb-3 md:mb-3 xl:mb-6">
-                                                        Пройди тест и мы подберём средства,<br />которые подойдут именно тебе
-                                                    </p>
-                                                    
-                                                    {/* Звездочка и кнопка */}
-                                                    <div className="flex items-center gap-2 md:gap-3 lg:gap-4">
-                                                        <div className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 flex-shrink-0">
-                                                            <Image
-                                                                src="/test/star_test.svg"
-                                                                alt="Star"
-                                                                width={32}
-                                                                height={32}
-                                                                className="w-full h-full"
-                                                            />
-                                                        </div>
-                                                        <Link
-                                                            href="/test"
-                                                            className="inline-flex items-center gap-1 md:gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-3 md:px-3 xl:px-4 py-1.5 md:py-3 xl:py-3 text-[8px] md:text-[12px] lg:text-[14px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white transition-all"
-                                                        >
-                                                            <span>ПРОЙТИ ТЕСТ</span>
-                                                            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="w-2 h-2 md:w-3 md:h-3 xl:w-3 xl:h-3">
-                                                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                            </svg>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                                
-                                                {/* Фото товаров справа */}
-                                                <div className="absolute right-0 md:right-8 xl:right-12 bottom-0 w-[187px] md:w-[423px] xl:w-[498px] h-[99px] md:h-[224px] xl:h-[264px]">
-                                                    <Image
-                                                        src="/advertising/photo_advertising_iphone.png"
-                                                        alt="Products"
-                                                        fill
-                                                        className="object-contain object-bottom md:hidden"
-                                                    />
-                                                    <Image
-                                                        src="/advertising/photo_advertising_ipad.png"
-                                                        alt="Products"
-                                                        fill
-                                                        className="object-contain hidden md:block lg:hidden"
-                                                    />
-                                                    <Image
-                                                        src="/advertising/photo_advertising_desktop.png"
-                                                        alt="Products"
-                                                        fill
-                                                        className="object-contain hidden lg:block"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div key="advertising-banner" className="hidden lg:block col-span-2 lg:col-span-3 my-0" style={{ gridRow: gridRowDesktop, gridColumn: '1 / -1' }}>
+                                        <AdvertisingBanner />
                                     </div>
                                 );
                                 gridRowDesktop++; // Увеличиваем счетчик после баннера
@@ -238,72 +226,8 @@ export default function CatalogPage() {
                             // Вставляем баннер после второго блока (для mobile)
                             if (blockIndex === 1) {
                                 result.push(
-                                    <div key="advertising-banner-mobile" className="col-span-2 lg:hidden my-4 md:my-6" style={{ gridRow: gridRowMobile, gridColumn: '1 / -1' }}>
-                                        <div className="relative w-full h-[136px] md:h-[262px] rounded-[24px] md:rounded-[32px] overflow-hidden">
-                                            {/* Фоновое изображение */}
-                                            <Image
-                                                src="/advertising/background_advertising_iphone.svg"
-                                                alt="Background"
-                                                fill
-                                                className="object-cover md:hidden"
-                                            />
-                                            <Image
-                                                src="/advertising/background_advertising_ipad.svg"
-                                                alt="Background"
-                                                fill
-                                                className="object-cover hidden md:block"
-                                            />
-                                            
-                                            {/* Контент */}
-                                            <div className="relative h-full flex items-center p-4 md:p-8">
-                                                <div className="flex-1 max-w-[400px]">
-                                                    <h2 className="text-[16px] md:text-[28px] font-montserrat font-semibold text-black leading-tight mb-2 md:mb-4">
-                                                        НЕ ЗНАЕШЬ КАКОЙ<br />УХОД ПОДОЙДЁТ ТЕБЕ?
-                                                    </h2>
-                                                    <p className="text-[8px] md:text-[12px] font-montserrat text-black mb-3 md:mb-4">
-                                                        Пройди тест и мы подберём средства,<br />которые подойдут именно тебе
-                                                    </p>
-                                                    
-                                                    {/* Звездочка и кнопка */}
-                                                    <div className="flex items-center gap-2 md:gap-3">
-                                                        <div className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0">
-                                                            <Image
-                                                                src="/test/star_test.svg"
-                                                                alt="Star"
-                                                                width={32}
-                                                                height={32}
-                                                                className="w-full h-full"
-                                                            />
-                                                        </div>
-                                                        <Link
-                                                            href="/test"
-                                                            className="inline-flex items-center gap-1 md:gap-2 border-1 border-brand-purple text-brand-purple rounded-full px-3 md:px-5 py-1.5 md:py-2 text-[8px] md:text-[12px] font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white transition-all"
-                                                        >
-                                                            <span>ПРОЙТИ ТЕСТ</span>
-                                                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="w-2 h-2 md:w-3 md:h-3">
-                                                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                            </svg>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                                
-                                                {/* Фото товаров справа */}
-                                                <div className="absolute right-0 md:right-8 bottom-0 w-[160px] md:w-[180px] h-[85px] md:h-[150px]">
-                                                    <Image
-                                                        src="/advertising/photo_advertising_iphone.png"
-                                                        alt="Products"
-                                                        fill
-                                                        className="object-contain object-bottom md:hidden"
-                                                    />
-                                                    <Image
-                                                        src="/advertising/photo_advertising_ipad.png"
-                                                        alt="Products"
-                                                        fill
-                                                        className="object-contain hidden md:block"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div key="advertising-banner-mobile" className="col-span-2 lg:hidden" style={{ gridRow: gridRowMobile, gridColumn: '1 / -1' }}>
+                                        <AdvertisingBanner />
                                     </div>
                                 );
                                 gridRowMobile++; // Увеличиваем счетчик после баннера

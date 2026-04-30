@@ -15,7 +15,7 @@ export default function BlogPage() {
 
     return (
         <main className="bg-white">
-            <div className="max-w-[1440px] mx-auto px-2 md:px-4 xl:px-5 py-8 md:py-8 xl:py-12">
+            <div className="max-w-[1440px] mx-auto px-2 xl:px-5 py-6.25 md:py-8 xl:py-12">
 
                 {/* Секции по категориям */}
                 {CATEGORIES.map(({ key, label }, index) => {
@@ -24,12 +24,12 @@ export default function BlogPage() {
 
                     return (
                         <section key={key} className={isLast ? '' : 'mb-5 md:mb-12 xl:mb-16'}>
-                            <h2 className="text-[18px] xl:text-[40px] font-montserrat font-medium text-black uppercase mb-3 md:mb-6 xl:mb-8 font-montserrat">
+                            <h2 className="text-[18px] xl:text-[40px] font-montserrat font-medium text-black uppercase mb-5.5 xl:mb-8 font-montserrat">
                                 {label}
                             </h2>
 
                             {/* Десктоп и планшет: сетка 3 колонки */}
-                            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+                            <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-5">
                                 {categoryArticles.map((article) => (
                                     <ArticleCard key={article.id} article={article} />
                                 ))}
@@ -116,10 +116,10 @@ function MobileArticleCard({ article }: { article: Article }) {
                 {/* Контент */}
                 <div className="absolute bottom-0 left-0 right-0 p-2.5">
 
-                    <h3 className="text-[9px] font-bold text-black font-montserrat leading-tight line-clamp-2 mb-0.5">
+                    <h3 className="text-[8px] font-semibold text-black font-montserrat line-clamp-2">
                         {article.title}
                     </h3>
-                    <p className="text-[8px] text-gray-600 font-montserrat line-clamp-1">
+                    <p className="text-[8px] text-black font-montserrat font-normal line-clamp-1 normal-case">
                         {article.description}
                     </p>
                 </div>

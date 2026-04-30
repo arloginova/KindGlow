@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Product } from '@/types/product';
 import { useState } from 'react';
 
@@ -13,17 +13,26 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: ProductCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
+    const router = useRouter();
     
     const desktopImg = product.images.desktop;
     const tabletImg = product.images.tablet;
     const mobileImg = product.images.mobile;
 
     return (
-        <Link
-            href={`/products/${product.id}`}
-            className={`group relative block w-full overflow-hidden rounded-[24px] bg-[#F3F3F7] transition-all 
+        <div
+            role="link"
+            tabIndex={0}
+            className={`group relative block w-full overflow-hidden rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] bg-[#F3F3F7] transition-all cursor-pointer 
                 ${isTallLg ? 'lg:aspect-[1/2.04]' : 'lg:aspect-square'}
                 ${isTallSm ? 'aspect-[1/2.04]' : 'aspect-square'}`}
+            onClick={() => router.push(`/products/${product.id}`)}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    router.push(`/products/${product.id}`);
+                }
+            }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -62,16 +71,16 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
             </div>
 
             {/* Контент поверх фото внизу */}
-            <div className="absolute bottom-0 left-0 right-0 p-3 lg:p-4 xl:p-5 z-10 flex flex-col">
-                <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.5 lg:mb-1">
-                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black uppercase leading-[1.2] font-montserrat">
+            <div className="absolute bottom-0 left-0 right-0 p-2 lg:p-4 xl:p-5 z-10 flex flex-col">
+                <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.75 lg:mb-1">
+                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black font-montserrat">
                         {product.name}
                     </h3>
                     <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black whitespace-nowrap font-montserrat">
-                        {product.price.toLocaleString()} Р
+                        {product.price.toLocaleString('de-DE')} ₽
                     </span>
                 </div>
-                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-gray-800 font-normal font-montserrat max-w-[95%] leading-tight lg:leading-snug">
+                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-gray-800 font-normal font-montserrat max-w-[90%] lg:max-w-[95%] leading-tight lg:leading-snug">
                     {product.description}
                 </p>
             </div>
@@ -83,7 +92,7 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
                         {product.name}
                     </h3>
                     <span className="text-[16px] font-bold text-white whitespace-nowrap font-montserrat">
-                        {product.price.toLocaleString()} Р
+                        {product.price.toLocaleString('de-DE')} ₽
                     </span>
                 </div>
                 <p className="text-[15px] text-white font-normal font-montserrat leading-snug mb-4 text-left">
@@ -91,21 +100,18 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
                 </p>
                 
                 {/* Кнопка ПЕРЕЙТИ */}
-                <a
-                    href={product.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-white border-1 border-black text-black rounded-full py-1 text-[14px] font-montserrat font-medium uppercase text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+                <button
+                    type="button"
+                    className="w-full bg-white border-1 border-black text-black rounded-full py-1 text-[14px] font-montserrat font-medium uppercase text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     onClick={(e) => {
-                        e.preventDefault();
                         e.stopPropagation();
                         window.open(product.link, '_blank');
                     }}
                 >
                     <span>ПЕРЕЙТИ</span>
                     <span className="text-[16px]">→</span>
-                </a>
+                </button>
             </div>
-        </Link>
+        </div>
     );
 };

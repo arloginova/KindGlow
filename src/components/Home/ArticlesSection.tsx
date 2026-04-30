@@ -5,6 +5,12 @@ import Link from 'next/link';
 import { articles } from '@/data/articles';
 import { ArticleCard } from '@/components/Blog/ArticleCard';
 
+const getThumbWidth = (viewportWidth: number) => {
+    if (viewportWidth >= 1280) return 233;
+    if (viewportWidth >= 1024) return 165;
+    return 63;
+};
+
 export function ArticlesSection() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
@@ -13,8 +19,20 @@ export function ArticlesSection() {
     const [isDragging, setIsDragging] = useState(false);
     const [dragStartX, setDragStartX] = useState(0);
     const [dragStartScroll, setDragStartScroll] = useState(0);
+    const [thumbWidth, setThumbWidth] = useState(63);
 
     const featuredArticles = articles.slice(0, 6);
+
+    useEffect(() => {
+        const updateThumbWidth = () => {
+            setThumbWidth(getThumbWidth(window.innerWidth));
+        };
+
+        updateThumbWidth();
+        window.addEventListener('resize', updateThumbWidth);
+
+        return () => window.removeEventListener('resize', updateThumbWidth);
+    }, []);
 
     useEffect(() => {
         const slider = scrollRef.current;
@@ -25,7 +43,7 @@ export function ArticlesSection() {
             if (isDragging) return;
             const scrollLeft = slider.scrollLeft;
             const scrollWidth = slider.scrollWidth - slider.clientWidth;
-            const trackWidth = track.clientWidth - 100;
+            const trackWidth = track.clientWidth - thumbWidth;
             
             const position = scrollWidth > 0 ? (scrollLeft / scrollWidth) * trackWidth : 0;
             setScrollPosition(position);
@@ -35,7 +53,7 @@ export function ArticlesSection() {
         handleScroll();
         
         return () => slider.removeEventListener('scroll', handleScroll);
-    }, [featuredArticles, isDragging]);
+    }, [featuredArticles, isDragging, thumbWidth]);
 
     const handleThumbMouseDown = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -49,7 +67,7 @@ export function ArticlesSection() {
             if (!isDragging || !scrollRef.current || !trackRef.current) return;
 
             const deltaX = e.clientX - dragStartX;
-            const trackWidth = trackRef.current.clientWidth - 100;
+            const trackWidth = trackRef.current.clientWidth - thumbWidth;
             const scrollWidth = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
             
             const scrollDelta = (deltaX / trackWidth) * scrollWidth;
@@ -69,22 +87,20 @@ export function ArticlesSection() {
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [isDragging, dragStartX, dragStartScroll]);
+    }, [isDragging, dragStartX, dragStartScroll, thumbWidth]);
 
     return (
-        <section className="py-8 sm:py-10 md:py-12 lg:py-[60px] xl:py-[76px]">
+        <section className="pt-10 lg:pt-29 xl:pt-32.5">
             {/* Заголовок и кнопка */}
-            <div className="flex items-center justify-between mb-6 sm:mb-7 md:mb-7.5 lg:mb-8 xl:mb-10">
-                <h2 className="text-[24px] sm:text-[30px] md:text-[33px] lg:text-[36px] xl:text-[48px] font-montserrat font-medium text-black uppercase">
+            <div className="flex items-center justify-between mb-[22.5px] lg:mb-[35px] xl:mb-12.25">
+                <h2 className="text-[18px] lg:text-[35px] xl:text-[50px] font-montserrat font-medium text-black uppercase">
                     СТАТЬИ
                 </h2>
-
                 <Link
                     href="/blog"
-                   className="hidden lg:inline-flex items-center gap-2 bg-brand-purple text-white rounded-full px-5 py-3 text-[14px] font-regular font-montserrat uppercase tracking-wide hover:opacity-90 transition-all ml-6 flex-shrink-0"
-                >
+                    className="hidden lg:inline-flex items-center gap-1 bg-brand-purple text-white rounded-full pl-2.75 xl:pl-4.5 pr-1.75 xl:pr-2.25 py-2.75 xl:py-3.5 text-[10px] xl:text-[14px] font-regular font-montserrat uppercase hover:opacity-90 transition-all ml-6 flex-shrink-0">
                     <span>СМОТРЕТЬ ВСЁ</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4 xl:w-5 xl:h-5">
                         <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </Link>
@@ -93,13 +109,13 @@ export function ArticlesSection() {
             {/* Слайдер статей */}
             <div 
                 ref={scrollRef}
-                className="overflow-x-auto no-scrollbar pb-4"
+                className="overflow-x-auto no-scrollbar pb-5"
             >
-                <div className="flex gap-4 sm:gap-5 md:gap-5.5 lg:gap-6 xl:gap-8 min-w-max">
+                <div className="flex gap-2 lg:gap-4 xl:gap-5 min-w-max">
                     {featuredArticles.map((article) => (
                         <div 
                             key={article.id}
-                            className="w-[185px] sm:w-[250px] md:w-[285px] lg:w-[320px] xl:w-[453px] flex-shrink-0"
+                            className="w-[184px] lg:w-[320px] xl:w-[453px] flex-shrink-0"
                         >
                             <ArticleCard article={article} />
                         </div>
@@ -108,13 +124,13 @@ export function ArticlesSection() {
             </div>
 
             {/* Индикатор скролла */}
-            <div ref={trackRef} className="relative mt-6 sm:mt-7 md:mt-7.5 lg:mt-8 xl:mt-10">
-                <div className="w-full h-[4px] bg-[#E1E5FB] rounded-full" />
+            <div ref={trackRef} className="relative lg:mt-[13.5px] xl:mt-6">
+                <div className="w-full h-[2px] lg:h-[3px] xl:h-[5px] bg-[#E1E5FB] rounded-full" />
                 <div 
                     ref={thumbRef}
-                    className="absolute top-0 h-[4px] bg-black rounded-full transition-all duration-200 cursor-grab active:cursor-grabbing"
+                    className="absolute top-0 h-[2px] lg:h-[3px] xl:h-[5px] bg-black rounded-full transition-all duration-200 cursor-grab active:cursor-grabbing"
                     style={{ 
-                        width: '100px',
+                        width: `${thumbWidth}px`,
                         left: `${scrollPosition}px`
                     }}
                     onMouseDown={handleThumbMouseDown}

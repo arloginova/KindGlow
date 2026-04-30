@@ -89,42 +89,32 @@ function TestResultsContent() {
 
     return (
         <main className="bg-white">
-            <div className="max-w-[1440px] mx-auto px-2 md:px-6 lg:px-5 py-8 lg:py-5">
+            <div className="max-w-[1440px] mx-auto px-2 lg:px-4 xl:px-5 mt-6.75 lg:mt-3 xl:mt-8 mb-6.75 lg:mb-15">
                 
                 {/* Заголовок и кнопка */}
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-8 mb-8 md:mb-12 lg:mb-12">
+                <div className="flex flex-row items-start justify-between gap-3 lg:gap-8 mb-6 lg:mb-8.25 xl:mb-14">
                     {/* Левая часть: заголовок и описание */}
                     <div className="flex-1">
-                        <h1 className="text-[18px] md:text-[35px] lg:text-[50px] font-montserrat font-medium text-black uppercase leading-tight mb-1 md:mb-1">
+                        <h1 className="text-[18px] lg:text-[35px] xl:text-[50px] font-montserrat font-medium text-black uppercase xl:leading-0 mb-1.25 lg:mb-1 xl:mb-9">
                             РЕЗУЛЬТАТ ТЕСТА
                         </h1>
-                        <p className="text-[8px] md:text-[12px] lg:text-[16px] text-black font-montserrat font-normal leading-relaxed max-w-[600px]">
+                        <p className="text-[8px] lg:text-[12px] xl:text-[16px] text-black font-montserrat font-normal leading-2.5 lg:leading-3.5 xl:leading-5 max-w-[600px]">
                             Надеемся, что эти средства заинтересуют тебя.<br />
                             Мы подобрали их исходя из твоих запросов
                         </p>
                     </div>
                     
                     {/* Правая часть: кнопка */}
-                    <div className="flex items-start gap-3 md:gap-4 flex-shrink-0 mt-2 md:mt-3 lg:mt-4">
+                    <div className="flex items-start gap-3 md:gap-4 flex-shrink-0 mt-2.75 md:mt-3 lg:mt-5.25 xl:mt-0">
+
                         <Link
                             href="/test"
-                            className="inline-flex items-center gap-2 bg-white border border-brand-purple rounded-full px-4 md:px-8 lg:px-10 py-2.5 md:py-4 text-[8px] md:text-[14px] lg:text-[16px] text-brand-purple font-medium font-montserrat uppercase tracking-wide hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all whitespace-nowrap group"
+                            className="inline-flex items-center gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border-[0.7px] lx:border-1 border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
                         >
                             <span>ПРОЙТИ ТЕСТ ЗАНОВО</span>
-                            <svg 
-                                width="16" 
-                                height="16" 
-                                viewBox="0 0 16 16" 
-                                fill="none" 
-                                className="w-3 h-3 md:w-4 md:h-4"
-                            >
-                                <path 
-                                    d="M4 12L12 4M12 4H6M12 4V10" 
-                                    stroke="currentColor" 
-                                    strokeWidth="1.5" 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round"
-                                />
+    
+                            <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="w-1.25 lg:w-1.75 xl:w-2.25 h-1.25 lg:h-1.75 xl:h-2.25">
+                                <path d="M0.248057 0.24999H4.20507M4.20507 0.24999V4.207M4.20507 0.24999L0.248057 4.207" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </Link>
                     </div>
