@@ -98,7 +98,7 @@ function TestResultsContent() {
                         <h1 className="text-[18px] lg:text-[35px] xl:text-[50px] font-montserrat font-medium text-black uppercase xl:leading-0 mb-1.25 lg:mb-1 xl:mb-9">
                             РЕЗУЛЬТАТ ТЕСТА
                         </h1>
-                        <p className="text-[8px] lg:text-[12px] xl:text-[16px] text-black font-montserrat font-normal leading-2.5 lg:leading-3.5 xl:leading-5 max-w-[600px]">
+                        <p className="text-[9px] lg:text-[12px] xl:text-[16px] text-black font-montserrat font-normal leading-2.5 lg:leading-3.5 xl:leading-5 max-w-[600px]">
                             Надеемся, что эти средства заинтересуют тебя.<br />
                             Мы подобрали их исходя из твоих запросов
                         </p>
@@ -109,9 +109,9 @@ function TestResultsContent() {
 
                         <Link
                             href="/test"
-                            className="inline-flex items-center gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border-[0.7px] lx:border-1 border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                            className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
                         >
-                            <span>ПРОЙТИ ТЕСТ ЗАНОВО</span>
+                            <span className="leading-none">ПРОЙТИ ТЕСТ ЗАНОВО</span>
     
                             <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="w-1.25 lg:w-1.75 xl:w-2.25 h-1.25 lg:h-1.75 xl:h-2.25">
                                 <path d="M0.248057 0.24999H4.20507M4.20507 0.24999V4.207M4.20507 0.24999L0.248057 4.207" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>

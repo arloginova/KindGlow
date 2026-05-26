@@ -121,7 +121,7 @@ export function HeroBanner() {
                     <span>Уроки макияжа</span>
                     <div className="w-[23px] h-[23px] lg:w-[38px] lg:h-[38px] xl:w-[52px] xl:h-[52px] bg-black rounded-full flex items-center justify-center flex-shrink-0">
                         <svg width="28" height="28" viewBox="0 0 20 20" fill="none" className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 xl:w-6 xl:h-6">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </div>
                 </Link>

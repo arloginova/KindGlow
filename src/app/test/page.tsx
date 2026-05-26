@@ -87,13 +87,13 @@ export default function TestPage() {
                             <div className="max-w-[600px]">
                                 {/* Бейджи */}
                                 <div className="flex flex-wrap gap-1 lg:gap-2 mb-2.75 lg:mb-6 xl:mb-9">
-                                    <span className="h-[14px] lg:h-[26px] xl:h-[32px] px-1 lg:px-1.5 xl:px-2 rounded-full border-[0.5px] lg:border-[0.7px] border-black text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat lg:leading-6 xl:leading-8">
+                                    <span className="h-[14px] lg:h-[26px] xl:h-[32px] px-1 lg:px-1.5 xl:px-2 rounded-full border-[0.5px] lg:border border-black text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat lg:leading-6 xl:leading-8">
                                         cruelty-free
                                     </span>
-                                    <span className="h-[14px] lg:h-[26px] xl:h-[32px] px-1 lg:px-1.5 xl:px-2 rounded-full border-[0.5px] lg:border-[0.7px] border-black text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat lg:leading-6 xl:leading-8">
+                                    <span className="h-[14px] lg:h-[26px] xl:h-[32px] px-1 lg:px-1.5 xl:px-2 rounded-full border-[0.5px] lg:border border-black text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat lg:leading-6 xl:leading-8">
                                         vegan
                                     </span>
-                                    <span className="h-[14px] lg:h-[26px] xl:h-[32px] px-1 lg:px-1.5 xl:px-2 rounded-full border-[0.5px] lg:border-[0.7px] border-black text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat lg:leading-6 xl:leading-8">
+                                    <span className="h-[14px] lg:h-[26px] xl:h-[32px] px-1 lg:px-1.5 xl:px-2 rounded-full border-[0.5px] lg:border border-black text-[8px] lg:text-[12px] xl:text-[16px] font-montserrat lg:leading-6 xl:leading-8">
                                         zero-waste
                                     </span>
                                 </div>
@@ -104,7 +104,7 @@ export default function TestPage() {
                                 </h1>
                                 
                                 {/* Описание */}
-                                <p className="text-[8px] lg:text-[12px] xl:text-[16px] text-black font-montserrat leading-relaxed mb-2.75 lg:mb-4.5 xl:mb-6.25">
+                                <p className="text-[10px] lg:text-[12px] xl:text-[16px] text-black font-montserrat leading-relaxed mb-2.75 lg:mb-4.5 xl:mb-6.25">
                                     Мы подберём средства под твою кожу, рутину и ценности
                                 </p>
 
@@ -124,7 +124,7 @@ export default function TestPage() {
                                     {/* Кнопка */}
                                     <button
                                         onClick={() => setTestStarted(true)}
-                                        className="inline-flex items-center gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border-[0.7px] lx:border-1 border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                                        className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
                             >
                                         <span>ПРОЙТИ ТЕСТ</span>
 
@@ -274,16 +274,16 @@ export default function TestPage() {
                             <button
                                 onClick={handleNextQuestion}
                                 disabled={isMultipleChoice ? selectedAnswers.length === 0 : !selectedAnswer}
-                                className={`inline-flex items-center gap-2 bg-brand-purple text-white rounded-full pl-2 lg:pl-2.75 xl:pl-4.5 pr-1.5 lg:pr-1.75 xl:pr-2.25 py-1.75 lg:py-2.75 xl:py-3.5 text-[8px] lg:text-[10px] xl:text-[14px] font-regular font-montserrat uppercase hover:opacity-90 transition-all flex-shrink-0 ${
+                                className={`inline-flex items-center gap-0.5 bg-brand-purple text-white rounded-full pl-2 lg:pl-2.75 xl:pl-4.5 pr-1.5 lg:pr-1.75 xl:pr-2.25 py-1.75 lg:py-2.75 xl:py-3.5 text-[8px] lg:text-[10px] xl:text-[14px] font-regular font-montserrat uppercase hover:opacity-90 transition-all flex-shrink-0 ${
                                     (isMultipleChoice ? selectedAnswers.length > 0 : selectedAnswer)
                                         ? 'bg-brand-purple text-white hover:opacity-90'
                                         : 'bg-brand-purple text-white cursor-not-allowed'
                                 }`}
                             >
-                                <span>{isLastQuestion ? 'ПОКАЗАТЬ РЕЗУЛЬТАТЫ' : 'СЛЕДУЮЩИЙ ВОПРОС'}</span>
+                                <span className="leading-none">{isLastQuestion ? 'ПОКАЗАТЬ РЕЗУЛЬТАТЫ' : 'СЛЕДУЮЩИЙ ВОПРОС'}</span>
 
-                                <svg width="4" height="7" viewBox="0 0 4 7" fill="none" className="w-1.75 h-1.75">
-                                    <path d="M0.107493 0.590191C0.0731562 0.556795 0.0463127 0.517511 0.0284948 0.474582C0.0106769 0.431652 0.00223355 0.385917 0.00364722 0.339988C0.00506089 0.294059 0.0163037 0.248836 0.0367337 0.206901C0.0571637 0.164965 0.0863809 0.127139 0.122717 0.0955811C0.159053 0.0640233 0.201797 0.0393522 0.248507 0.0229763C0.295217 0.00660052 0.344979 -0.00115934 0.394953 0.000139919C0.444926 0.00143918 0.494132 0.0117721 0.53976 0.0305486C0.585388 0.0493251 0.626546 0.0761776 0.660883 0.109573L3.89597 3.25773C3.96278 3.32267 4 3.40866 4 3.49803C4 3.58741 3.96278 3.6734 3.89597 3.73834L0.660883 6.88685C0.626773 6.92097 0.585624 6.94853 0.539828 6.96792C0.494032 6.9873 0.444501 6.99813 0.394112 6.99978C0.343723 7.00142 0.29348 6.99385 0.246302 6.9775C0.199125 6.96115 0.155952 6.93635 0.119293 6.90453C0.0826333 6.87271 0.0532175 6.83452 0.0327542 6.79217C0.0122909 6.74982 0.00118783 6.70415 9.00115e-05 6.65782C-0.00100781 6.61149 0.00792141 6.56542 0.0263591 6.52229C0.0447968 6.47916 0.0723755 6.43983 0.107493 6.40658L3.09595 3.49803L0.107493 0.590191Z" fill="currentColor"/>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-2.75 h-2.75 lg:w-4 lg:h-4 xl:w-5 xl:h-5">
+                                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </button>
                         </div>

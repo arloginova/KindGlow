@@ -63,10 +63,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
                     {/* Название и описание + кнопка */}
                     <div className="flex items-end justify-between gap-3">
                         <div className="flex-1 min-w-0">
-                            <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-semibold text-black font-montserrat line-clamp-2">
+                            <h3 className="text-[9px] lg:text-[12px] xl:text-[16px] font-semibold text-black font-montserrat line-clamp-2">
                                 {article.title}
                             </h3>
-                            <p className="text-[8px] lg:text-[12px] xl:text-[16px] text-black font-montserrat font-normal line-clamp-1 normal-case">
+                            <p className="text-[9px] lg:text-[12px] xl:text-[16px] text-black font-montserrat font-normal line-clamp-1 normal-case">
                                 {article.description}
                             </p>
                         </div>

@@ -52,7 +52,7 @@ export function TelegramSection() {
                         В нашем Telegram-канале мы обсуждаем всё, что делает жизнь чуть легче и красивее: осознанный уход, честные бренды, устойчивые привычки и маленькие шаги, которые приносят спокойствие и уверенность<br className="hidden lg:block xl:hidden" /> в Вашем правильном выборе
                     </p>
                     {/* Описание для мобильного */}
-                    <p className="lg:hidden text-[8px] font-semibold font-montserrat text-black leading-2.5 max-w-[600px] mb-2.75">
+                    <p className="lg:hidden text-[9px] font-semibold font-montserrat text-black leading-2.5 max-w-[600px] mb-2.75">
                         осознанный уход, честные бренды, устойчивые привычки и маленькие шаги, приносящие спокойствие
                     </p>
                     {/* Звездочка и кнопка */}

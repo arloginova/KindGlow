@@ -34,15 +34,15 @@ export function VideosSection() {
                 <Link
                     href="/tutorials"
                     className="hidden lg:inline-flex items-center gap-1 bg-brand-purple text-white rounded-full pl-2.75 xl:pl-4.5 pr-1.75 xl:pr-2.25 py-2.75 xl:py-3.5 text-[10px] xl:text-[14px] font-regular font-montserrat uppercase hover:opacity-90 transition-all ml-6 flex-shrink-0">
-                    <span>СМОТРЕТЬ ВСЁ</span>
+                    <span >СМОТРЕТЬ ВСЁ</span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4 xl:w-5 xl:h-5">
-                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </Link>
             </div>
 
             {/* Сетка видео */}
-            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-5">
                 {featuredVideos.slice(0, 2).map((video) => {
                     const videoNumber = getVideoNumberInCategory(video.id);
                     const isHovered = hoveredVideo === video.id;
@@ -97,8 +97,8 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Кнопка с белым бордером */}
-                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white flex items-center justify-center z-20">
-                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white duration-300 group-hover:bg-white flex items-center justify-center z-20">
+                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white group-hover:text-[#9186CA]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>
@@ -116,7 +116,7 @@ export function VideosSection() {
                         <Link
                             key={video.id}
                             href={`/tutorials#video-${video.id}`}
-                            className="hidden md:block relative cursor-pointer group"
+                            className="hidden sm:block relative cursor-pointer group"
                             onMouseEnter={() => setHoveredVideo(video.id)}
                             onMouseLeave={() => setHoveredVideo(null)}
                         >
@@ -162,8 +162,8 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Кнопка с белым бордером */}
-                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white flex items-center justify-center z-20">
-                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white duration-300 group-hover:bg-white flex items-center justify-center z-20">
+                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white group-hover:text-[#9186CA]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>
@@ -227,8 +227,8 @@ export function VideosSection() {
                                 </div>
 
                                 {/* Кнопка с белым бордером */}
-                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white flex items-center justify-center z-20">
-                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="absolute bottom-2 lg:bottom-4 xl:bottom-5 right-2 lg:right-4 xl:right-5 w-6.75 lg:w-11.5 xl:w-12 h-6.75 lg:h-11.5 xl:h-12 rounded-full border-1 border-white duration-300 group-hover:bg-white flex items-center justify-center z-20">
+                                    <svg className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-white group-hover:text-[#9186CA]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>

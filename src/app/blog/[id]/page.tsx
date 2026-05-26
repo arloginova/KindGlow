@@ -75,7 +75,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
                             {article.badges.map(badge => (
                                 <span
                                     key={badge}
-                                    className={`text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-regular font-montserrat leading-tight bg-white px-2 py-1 rounded-full border `}
+                                    className={`text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-regular font-montserrat leading-tight bg-white px-2 py-1 rounded-full border-[0.5px] lg:border `}
                                 >
                                     #{badge}
                                 </span>

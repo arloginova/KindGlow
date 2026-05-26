@@ -14,7 +14,7 @@ export function TestSection() {
                         НЕ ЗНАЕШЬ КАКОЙ<br />УХОД ПОДОЙДЁТ ТЕБЕ?
                     </h2>
                         
-                    <p className="text-[7px] lg:text-[12px] xl:text-[16px] font-semibold font-montserrat leading-2.25 lg:leading-3.75 xl:leading-5 text-black mb-[12.5px] lg:mb-5 xl:mb-7">
+                    <p className="text-[9px] lg:text-[12px] xl:text-[16px] font-semibold font-montserrat leading-2.25 lg:leading-3.75 xl:leading-5 text-black mb-[12.5px] lg:mb-5 xl:mb-7">
                         Пройди тест и мы подберём средства,<br />которые подойдут именно тебе
                     </p>
 
@@ -34,7 +34,7 @@ export function TestSection() {
                         {/* Кнопка */}
                         <Link
                             href="/test"
-                            className="inline-flex items-center gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border-[0.7px] lx:border-1 border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                            className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
                         >
                             <span>ПРОЙТИ ТЕСТ</span>
     

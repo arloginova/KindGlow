@@ -142,10 +142,12 @@ export function ProductsSection() {
                     href="/products"
                     className="hidden lg:inline-flex items-center gap-1 bg-brand-purple text-white rounded-full pl-2.75 xl:pl-4.5 pr-1.75 xl:pr-2.25 py-2.75 xl:py-3.5 text-[10px] xl:text-[14px] font-regular font-montserrat uppercase hover:opacity-90 transition-all ml-6 flex-shrink-0"
                 >
-                    <span>СМОТРЕТЬ ВЕСЬ КАТАЛОГ</span>
+                    <span className="leading-none">СМОТРЕТЬ ВЕСЬ КАТАЛОГ</span>
+                    
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-4 h-4 xl:w-5 xl:h-5">
-                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
+
                 </Link>
             </div>
 

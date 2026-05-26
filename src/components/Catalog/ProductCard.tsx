@@ -73,14 +73,14 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
             {/* Контент поверх фото внизу */}
             <div className="absolute bottom-0 left-0 right-0 p-2 lg:p-4 xl:p-5 z-10 flex flex-col">
                 <div className="flex justify-between items-start gap-1 lg:gap-2 mb-0.75 lg:mb-1">
-                    <h3 className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black font-montserrat">
+                    <h3 className="text-[9px] lg:text-[12px] xl:text-[16px] font-bold text-black font-montserrat">
                         {product.name}
                     </h3>
-                    <span className="text-[8px] lg:text-[12px] xl:text-[16px] font-bold text-black whitespace-nowrap font-montserrat">
+                    <span className="text-[9px] lg:text-[12px] xl:text-[16px] font-bold text-black whitespace-nowrap font-montserrat">
                         {product.price.toLocaleString('de-DE')} ₽
                     </span>
                 </div>
-                <p className="text-[8px] lg:text-[12px] xl:text-[15px] text-gray-800 font-normal font-montserrat max-w-[90%] lg:max-w-[95%] leading-tight lg:leading-snug">
+                <p className="text-[9px] lg:text-[12px] xl:text-[15px] text-gray-800 font-normal font-montserrat max-w-[90%] lg:max-w-[95%] leading-tight lg:leading-snug">
                     {product.description}
                 </p>
             </div>
@@ -102,14 +102,16 @@ export const ProductCard = ({ product, isTallLg = false, isTallSm = false }: Pro
                 {/* Кнопка ПЕРЕЙТИ */}
                 <button
                     type="button"
-                    className="w-full bg-white border-1 border-black text-black rounded-full py-1 text-[14px] font-montserrat font-medium uppercase text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-white border-1 border-black text-black rounded-full py-1 text-[16px] font-montserrat text-center hover:bg-white/90 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     onClick={(e) => {
                         e.stopPropagation();
                         window.open(product.link, '_blank');
                     }}
                 >
-                    <span>ПЕРЕЙТИ</span>
-                    <span className="text-[16px]">→</span>
+                    перейти
+                    <svg width="7" height="7" viewBox="0 0 7 7" fill="none" className="mt-0.75">
+                        <path d="M0.499813 0.498911H6.25019M6.25019 0.498911V6.22378M6.25019 0.498911L0.499813 6.22378" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                 </button>
             </div>
         </div>

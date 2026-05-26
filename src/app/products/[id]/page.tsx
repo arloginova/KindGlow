@@ -44,14 +44,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     <span className="text-black font-regular uppercase">{product.category}</span>
                 </nav>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1.05fr_1fr] gap-2.75 lg:gap-4 xl:gap-6.75 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1.05fr_1fr] gap-2.75 lg:gap-4 xl:gap-6.75 items-center">
 
                     {/* Мобильный заголовок (над фото) */}
                     <div className="lg:hidden mb-0">
                         <h1 className="text-[18px] lg:text-[32px] font-montserrat font-medium text-black leading-5.25 uppercase mb-1.75 w-60">
                             {product.name}
                         </h1>
-                        <p className="text-[10px] text-black font-montserrat w-10 leading-3">
+                        <p className="text-[11px] text-black font-montserrat w-10 leading-3">
                             {product.shortDescription}
                         </p>
                     </div>
@@ -91,7 +91,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     </div>
 
                     {/* Информация о продукте (Правая колонка) */}
-                    <div className="flex flex-col lg:pt-5 xl:pt-6.75">
+                    <div className="flex flex-col">
                         {/* Десктопный заголовок */}
                         <div className="hidden lg:block mb-8">
                             <h1 className="text-[35px] xl:text-[50px] font-montserrat font-medium text-black uppercase leading-tight mb-3.25 xl:mb-4.75">
@@ -107,7 +107,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                             {product.badges.map((badge) => (
                                 <span
                                     key={badge}
-                                    className="px-2 md:px-3 xl:px-2 py-0.5 lg:py-1 rounded-full border-[0.5px] border-black text-[8px] md:text-[12px] xl:text-[16px] font-medium normal-case font-montserrat"
+                                    className="px-2 md:px-3 xl:px-2 py-0.5 lg:py-1 rounded-full border-[0.5px] lg:border border-black text-[8px] md:text-[12px] xl:text-[16px] font-medium normal-case font-montserrat"
                                 >
                                     {badge}
                                 </span>
@@ -155,7 +155,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab as 'application' | 'composition')}
-                                className={`pb-3 lg:pb-5.25 xl:pb-7.5 text-[10px] lg:text-[13px] xl:text-[18px] font-medium uppercase transition-all relative ${activeTab === tab ? 'text-black' : 'text-gray-400'
+                                className={`pb-3 lg:pb-5.25 xl:pb-7.5 text-[10px] lg:text-[13px] xl:text-[18px] font-medium uppercase cursor-pointer transition-all relative ${activeTab === tab ? 'text-black' : 'text-gray-400'
                                     }`}
                             >
                                 {tab === 'application' ? 'Применение' : 'Состав'}
@@ -179,7 +179,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     <Link
                         href={product.link}
                         target="_blank"
-                        className="inline-flex w-full lg:w-auto items-center justify-center border border-black rounded-full py-0.75 px-10 text-[8px] font-regular normal-case transition-all font-montserrat group"
+                        className="inline-flex w-full lg:w-auto items-center justify-center border-[0.5px] border-black rounded-full py-0.75 px-10 text-[9px] font-regular normal-case transition-all font-montserrat group"
                     >
                         <span>перейти</span>
 
