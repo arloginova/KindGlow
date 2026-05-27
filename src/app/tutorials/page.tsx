@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { videoCategories } from '@/data/videos';
 import { Video } from '@/types/video';
+import { getVideoStreamUrl } from '@/lib/videoUrls';
+import { VideoPreview } from '@/components/Video/VideoPreview';
 
 export default function TutorialsPage() {
     const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
@@ -16,14 +18,25 @@ export default function TutorialsPage() {
     useEffect(() => {
         if (videoRef.current) {
             videoRef.current.volume = volume;
+            videoRef.current.muted = volume === 0;
         }
     }, [volume]);
+
+    useEffect(() => {
+        if (!selectedVideo || !videoRef.current) {
+            return;
+        }
+
+        videoRef.current.play().catch(() => {
+            setIsPlaying(false);
+        });
+    }, [selectedVideo]);
 
     const openVideoModal = (video: Video) => {
         setSelectedVideo(video);
         setIsDescriptionExpanded(false);
         setIsPlaying(true);
-        setVolume(1);
+        setVolume(0);
         setShowVolumeSlider(false);
     };
 
@@ -102,12 +115,9 @@ export default function TutorialsPage() {
                                         >
                                             <div className="relative w-full h-63.25 md:h-106.25 rounded-2xl md:rounded-3xl overflow-hidden">
                                                 {video.videoUrl ? (
-                                                    <video
-                                                        src={video.videoUrl}
+                                                    <VideoPreview
+                                                        videoId={video.id}
                                                         className="absolute inset-0 w-full h-full object-cover"
-                                                        muted
-                                                        playsInline
-                                                        preload="metadata"
                                                     />
                                                 ) : (
                                                     <div className="absolute inset-0 bg-linear-to-br from-gray-300 to-gray-200" />
@@ -153,12 +163,9 @@ export default function TutorialsPage() {
                                     >
                                         <div className="relative w-full h-63.25 md:h-106.25 xl:h-117.5 rounded-2xl md:rounded-3xl overflow-hidden">
                                             {video.videoUrl ? (
-                                                <video
-                                                    src={video.videoUrl}
+                                                <VideoPreview
+                                                    videoId={video.id}
                                                     className="absolute inset-0 w-full h-full object-cover"
-                                                    muted
-                                                    playsInline
-                                                    preload="metadata"
                                                 />
                                             ) : (
                                                 <div className="absolute inset-0 bg-linear-to-brrom-gray-300 to-gray-200" />
@@ -229,12 +236,16 @@ export default function TutorialsPage() {
                                     {selectedVideo.videoUrl.includes('dropbox') ? (
                                         <video
                                             ref={videoRef}
-                                            src={selectedVideo.videoUrl}
+                                            src={getVideoStreamUrl(selectedVideo.id)}
                                             className="w-full h-full object-cover cursor-pointer"
                                             autoPlay
                                             loop
+                                            muted={volume === 0}
                                             playsInline
+                                            preload="auto"
                                             onClick={togglePlayPause}
+                                            onPlay={() => setIsPlaying(true)}
+                                            onPause={() => setIsPlaying(false)}
                                         />
                                     ) : (
                                         <iframe

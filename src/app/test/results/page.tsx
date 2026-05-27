@@ -109,7 +109,7 @@ function TestResultsContent() {
 
                         <Link
                             href="/test"
-                            className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border-[0.5px] lg:border border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                            className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border border-brand-purple/35 lg:border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
                         >
                             <span className="leading-none">ПРОЙТИ ТЕСТ ЗАНОВО</span>
     

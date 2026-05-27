@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { videos, videoCategories } from '@/data/videos';
+import { VideoPreview } from '@/components/Video/VideoPreview';
 
 const FEATURED_VIDEO_IDS = [1, 2, 3, 4];
 
@@ -59,12 +60,9 @@ export function VideosSection() {
                             <div className="relative w-full h-[253px] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
                                 {/* Видео превью */}
                                 {video.videoUrl ? (
-                                    <video
-                                        src={video.videoUrl}
+                                    <VideoPreview
+                                        videoId={video.id}
                                         className="absolute inset-0 w-full h-full object-cover"
-                                        muted
-                                        playsInline
-                                        preload="metadata"
                                     />
                                 ) : (
                                     <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200" />
@@ -124,12 +122,9 @@ export function VideosSection() {
                             <div className="relative w-full h-[253px] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
                                 {/* Видео превью */}
                                 {video.videoUrl ? (
-                                    <video
-                                        src={video.videoUrl}
+                                    <VideoPreview
+                                        videoId={video.id}
                                         className="absolute inset-0 w-full h-full object-cover"
-                                        muted
-                                        playsInline
-                                        preload="metadata"
                                     />
                                 ) : (
                                     <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200" />
@@ -189,12 +184,9 @@ export function VideosSection() {
                             <div className="relative w-full h-[253px] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
                                 {/* Видео превью */}
                                 {video.videoUrl ? (
-                                    <video
-                                        src={video.videoUrl}
+                                    <VideoPreview
+                                        videoId={video.id}
                                         className="absolute inset-0 w-full h-full object-cover"
-                                        muted
-                                        playsInline
-                                        preload="metadata"
                                     />
                                 ) : (
                                     <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-200" />
