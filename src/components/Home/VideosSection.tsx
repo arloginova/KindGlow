@@ -57,7 +57,7 @@ export function VideosSection() {
                             onMouseLeave={() => setHoveredVideo(null)}
                         >
                             {/* Карточка видео */}
-                            <div className="relative w-full h-[253px] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
+                            <div className="relative w-full aspect-[185/253] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
                                 {/* Видео превью */}
                                 {video.videoUrl ? (
                                     <VideoPreview
@@ -119,7 +119,7 @@ export function VideosSection() {
                             onMouseLeave={() => setHoveredVideo(null)}
                         >
                             {/* Карточка видео */}
-                            <div className="relative w-full h-[253px] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
+                            <div className="relative w-full aspect-[185/253] lg:h-[425px] xl:h-[470px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px] overflow-hidden">
                                 {/* Видео превью */}
                                 {video.videoUrl ? (
                                     <VideoPreview
