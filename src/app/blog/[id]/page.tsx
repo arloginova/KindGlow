@@ -210,8 +210,10 @@ function parseContentToSections(content: string, sections: { id: string; title: 
 }
 
 function markdownToHtml(md: string): string {
+    const escapedMarkdown = escapeHtml(md);
+
     // Жирный текст
-    let html = md.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    let html = escapedMarkdown.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     // Курсив
     html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
     // Нумерованные и маркированные списки → li
@@ -230,4 +232,23 @@ function markdownToHtml(md: string): string {
     });
 
     return rendered.join('');
+}
+
+function escapeHtml(value: string): string {
+    return value.replace(/[&<>"']/g, (char) => {
+        switch (char) {
+            case '&':
+                return '&amp;';
+            case '<':
+                return '&lt;';
+            case '>':
+                return '&gt;';
+            case '"':
+                return '&quot;';
+            case "'":
+                return '&#39;';
+            default:
+                return char;
+        }
+    });
 }

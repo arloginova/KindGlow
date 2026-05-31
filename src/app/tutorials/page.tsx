@@ -168,7 +168,7 @@ export default function TutorialsPage() {
                                                     className="absolute inset-0 w-full h-full object-cover"
                                                 />
                                             ) : (
-                                                <div className="absolute inset-0 bg-linear-to-brrom-gray-300 to-gray-200" />
+                                                <div className="absolute inset-0 bg-linear-to-br from-gray-300 to-gray-200" />
                                             )}
 
                                             <div className="absolute top-[-1.5px] lg:top-2.5 xl:top-4.5 left-2 lg:left-4 xl:left-5 z-20">
@@ -217,7 +217,7 @@ export default function TutorialsPage() {
                     onClick={closeVideoModal}
                 >
                     <div
-                        className="relative w-full h-full md:max-w-112.5l:max-w-125aspect-9/16d:h-auto"
+                        className="relative w-full h-full md:max-w-112.5 xl:max-w-125 aspect-9/16 md:h-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Кнопка закрытия - стрелка назад */}

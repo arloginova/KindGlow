@@ -134,6 +134,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                             <Link
                                 href={product.link}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center border border-black rounded-full py-1 lg:px-27.75 xl:px-39.5 text-[12px] xl:text-[16px] font-regular normal-case transition-all font-montserrat group"
                             >
                                 <span>перейти</span>
@@ -179,6 +180,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     <Link
                         href={product.link}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex w-full lg:w-auto items-center justify-center border-[0.5px] border-black rounded-full py-0.75 px-10 text-[9px] font-regular normal-case transition-all font-montserrat group"
                     >
                         <span>перейти</span>

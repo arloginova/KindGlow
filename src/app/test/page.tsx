@@ -124,7 +124,7 @@ export default function TestPage() {
                                     {/* Кнопка */}
                                     <button
                                         onClick={() => setTestStarted(true)}
-                                        className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border border-brand-purple/50 lg:border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all"
+                                        className="shrink-0 inline-flex items-center whitespace-nowrap leading-none gap-1.75 lg:gap-2 xl:gap-3 border border-brand-purple/50 lg:border-brand-purple text-brand-purple rounded-full px-1.75 lg:px-3.25 xl:px-4 py-1.75 lg:py-3.25 xl:py-4.25 text-[8px] lg:text-[13px] xl:text-[16px] font-montserrat uppercase hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-all cursor-pointer"
                             >
                                         <span>ПРОЙТИ ТЕСТ</span>
 
@@ -258,7 +258,7 @@ export default function TestPage() {
                                         <button
                                             key={option}
                                             onClick={() => handleAnswerSelect(option)}
-                                            className={`rounded-full px-2.5 lg:px-3 xl:px-4 py-2.5 lg:py-3.75 xl:py-4.5 text-[8px] lg:text-[12px] xl:text-[16px] font-regular font-montserrat uppercase transition-all text-left ${
+                                            className={`rounded-full px-2.5 lg:px-3 xl:px-4 py-2.5 lg:py-3.75 xl:py-4.5 text-[8px] lg:text-[12px] xl:text-[16px] font-regular font-montserrat uppercase transition-all text-left cursor-pointer ${
                                                 isSelected
                                                     ? 'bg-brand-purple text-white '
                                                     : 'bg-white/80 text-black border-black/10 hover:bg-brand-purple hover:text-white '
@@ -276,7 +276,7 @@ export default function TestPage() {
                                 disabled={isMultipleChoice ? selectedAnswers.length === 0 : !selectedAnswer}
                                 className={`inline-flex items-center gap-0.5 bg-brand-purple text-white rounded-full pl-2 lg:pl-2.75 xl:pl-4.5 pr-1.5 lg:pr-1.75 xl:pr-2.25 py-1.75 lg:py-2.75 xl:py-3.5 text-[8px] lg:text-[10px] xl:text-[14px] font-regular font-montserrat uppercase hover:opacity-90 transition-all flex-shrink-0 ${
                                     (isMultipleChoice ? selectedAnswers.length > 0 : selectedAnswer)
-                                        ? 'bg-brand-purple text-white hover:opacity-90'
+                                        ? 'bg-brand-purple text-white hover:opacity-90 cursor-pointer'
                                         : 'bg-brand-purple text-white cursor-not-allowed'
                                 }`}
                             >

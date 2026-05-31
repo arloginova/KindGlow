@@ -7,7 +7,7 @@ export const Footer = () => {
             <div className="w-full max-w-[1400px] mx-auto relative bg-top bg-no-repeat h-[120px] lg:h-[326px] xl:h-[440px] flex flex-col p-[8px] lg:p-[16px] xl:p-[20px] rounded-[16px] lg:rounded-[20px] xl:rounded-[30px]" style={{ backgroundImage: "url('/background_footer.jpg')", backgroundSize: '100% 100%' }}>
                 {/* Иконка Telegram */}
                 <div className="absolute flex justify-between top-[8px] left-[8px] right-[8px] lg:top-[16px] lg:left-[16px] xl:top-[20px] xl:left-[20px] z-10">
-                    <Link href="https://t.me/arshklgnv" target="_blank" className="hover:scale-110 transition-transform block">
+                    <Link href="https://t.me/arshklgnv" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform block">
                         <Image
                             src="/icon_telegram.svg"
                             alt="Telegram"

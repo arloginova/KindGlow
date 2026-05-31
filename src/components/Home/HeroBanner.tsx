@@ -20,7 +20,6 @@ export function HeroBanner() {
                     alt="Background"
                     fill
                     className="object-cover hidden lg:block xl:hidden"
-                    priority
                 />
                 {/* Desktop */}
                 <Image
@@ -28,7 +27,6 @@ export function HeroBanner() {
                     alt="Background"
                     fill
                     className="object-cover hidden xl:block"
-                    priority
                 />
             </div>
 
@@ -64,7 +62,6 @@ export function HeroBanner() {
                         alt="Flower"
                         fill
                         className="object-contain"
-                        priority
                     />
                 </div>
 
@@ -75,7 +72,6 @@ export function HeroBanner() {
                         alt="Flower"
                         fill
                         className="object-contain"
-                        priority
                     />
                 </div>
 
@@ -86,7 +82,6 @@ export function HeroBanner() {
                         alt="Flower"
                         fill
                         className="object-contain"
-                        priority
                     />
                 </div>
 
@@ -97,7 +92,6 @@ export function HeroBanner() {
                         alt="Model"
                         fill
                         className="object-contain"
-                        priority
                     />
                 </div>
 
